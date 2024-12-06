@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>7.0</ProjectVersion>
+    <ToolchainName>com.Atmel.AVRGCC8.C</ToolchainName>
+    <ProjectGuid>dce6c7e3-ee26-4d79-826b-08594b9ad897</ProjectGuid>
+    <avrdevice>ATmega32</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>Executable</OutputType>
+    <Language>C</Language>
+    <OutputFileName>$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AssemblyName>AVR_ATmega32_Drivers</AssemblyName>
+    <Name>AVR_ATmega32_Drivers</Name>
+    <RootNamespace>AVR_ATmega32_Drivers</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <CacheFlash>true</CacheFlash>
+    <ProgFlashFromRam>true</ProgFlashFromRam>
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
+    <UncachedRange />
+    <preserveEEPROM>true</preserveEEPROM>
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
+    <BootSegment>2</BootSegment>
+    <ResetRule>0</ResetRule>
+    <eraseonlaunchrule>0</eraseonlaunchrule>
+    <EraseKey />
+    <AsfFrameworkConfig>
+      <framework-data xmlns="">
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.52.0" />
+        </dependencies>
+      </framework-data>
+    </AsfFrameworkConfig>
+    <avrtool>com.atmel.avrdbg.tool.simulator</avrtool>
+    <avrtoolserialnumber />
+    <avrdeviceexpectedsignature>0x1E9502</avrdeviceexpectedsignature>
+    <com_atmel_avrdbg_tool_simulator>
+      <ToolOptions xmlns="">
+        <InterfaceProperties>
+        </InterfaceProperties>
+      </ToolOptions>
+      <ToolType xmlns="">com.atmel.avrdbg.tool.simulator</ToolType>
+      <ToolNumber xmlns="">
+      </ToolNumber>
+      <ToolName xmlns="">Simulator</ToolName>
+    </com_atmel_avrdbg_tool_simulator>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <AvrGcc>
+        <avrgcc.common.Device>-mmcu=atmega32 -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32"</avrgcc.common.Device>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.7.374\include\</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+        <avrgcc.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.7.374\include\</Value>
+          </ListValues>
+        </avrgcc.assembler.general.IncludePaths>
+      </AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <AvrGcc>
+        <avrgcc.common.Device>-mmcu=atmega32 -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32"</avrgcc.common.Device>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.7.374\include\</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize debugging experience (-Og)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+        <avrgcc.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.7.374\include\</Value>
+          </ListValues>
+        </avrgcc.assembler.general.IncludePaths>
+        <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
+      </AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="APP_LAYER\APP.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="APP_LAYER\LAB1\LED_LAB.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="APP_LAYER\LAB2\BUTTON_LAB.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="APP_LAYER\LAB3\SSD_LAB.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="APP_LAYER\LAB4\DigitalTimerDesign.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="APP_LAYER\LAB5\EXTI_LAB.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="APP_LAYER\LAB6\LCD_LAB.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="APP_LAYER\LAB7\Keypad_LAB.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="APP_LAYER\LAB_ADC_Asynch\adc_app.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="APP_LAYER\LAB_ADC_Synch\ADC_Synch.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\BUTTON_MODULE\BUTTON.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\BUTTON_MODULE\BUTTON.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\BUTTON_MODULE\BUTTON_Config.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\BUTTON_MODULE\BUTTON_Config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\KEYPAD_MODULE\Keypad.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\KEYPAD_MODULE\Keypad.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\KEYPAD_MODULE\Keypad_Config.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\KEYPAD_MODULE\Keypad_Config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\LCD_MODULE\LCD.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\LCD_MODULE\LCD.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\LCD_MODULE\LCD_Config.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\LCD_MODULE\LCD_Config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\LED_MODULE\LED.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\LED_MODULE\LED.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\LED_MODULE\LED_Config.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\LED_MODULE\LED_Config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\SEVEN_SEG_MODULE\Seven_Segment.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\SEVEN_SEG_MODULE\Seven_Segment.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\SEVEN_SEG_MODULE\Seven_Segment_Config.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL_LAYER\SEVEN_SEG_MODULE\Seven_Segment_Config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL_LAYER\ADC\ADC.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL_LAYER\ADC\ADC.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL_LAYER\ADC\ADC_CFG.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL_LAYER\ADC\ADC_Private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL_LAYER\DIO_MODULE\DIO_AddReg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL_LAYER\DIO_MODULE\DIO_Driver\DIO.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL_LAYER\DIO_MODULE\DIO_Driver\DIO.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL_LAYER\DIO_MODULE\PORT_Driver\PORT.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL_LAYER\DIO_MODULE\PORT_Driver\PORT.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL_LAYER\DIO_MODULE\PORT_Driver\PORT_Config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL_LAYER\EXTERNAL_INTERRUPT_MODULE\EXTI.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL_LAYER\EXTERNAL_INTERRUPT_MODULE\EXTI.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL_LAYER\EXTERNAL_INTERRUPT_MODULE\EXTI_Config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL_LAYER\EXTERNAL_INTERRUPT_MODULE\EXTI_Private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL_LAYER\MCAL_StdTypes.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL_LAYER\TIMER\Timer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL_LAYER\TIMER\Timer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL_LAYER\TIMER\TimerCFG.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL_LAYER\TIMER\TimerPrivate.h">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="APP_LAYER\LAB1" />
+    <Folder Include="APP_LAYER\LAB2" />
+    <Folder Include="APP_LAYER\LAB3" />
+    <Folder Include="APP_LAYER\LAB4" />
+    <Folder Include="APP_LAYER\LAB5\" />
+    <Folder Include="APP_LAYER\LAB6" />
+    <Folder Include="APP_LAYER\LAB7" />
+    <Folder Include="APP_LAYER\LAB_ADC_Asynch" />
+    <Folder Include="APP_LAYER\LAB_ADC_Synch" />
+    <Folder Include="HAL_LAYER\LED_MODULE" />
+    <Folder Include="HAL_LAYER\BUTTON_MODULE" />
+    <Folder Include="HAL_LAYER\LCD_MODULE" />
+    <Folder Include="HAL_LAYER\KEYPAD_MODULE" />
+    <Folder Include="HAL_LAYER\SEVEN_SEG_MODULE" />
+    <Folder Include="MCAL_LAYER" />
+    <Folder Include="HAL_LAYER" />
+    <Folder Include="APP_LAYER" />
+    <Folder Include="MCAL_LAYER\DIO_MODULE" />
+    <Folder Include="MCAL_LAYER\DIO_MODULE\DIO_Driver" />
+    <Folder Include="MCAL_LAYER\DIO_MODULE\PORT_Driver" />
+    <Folder Include="MCAL_LAYER\EXTERNAL_INTERRUPT_MODULE" />
+    <Folder Include="MCAL_LAYER\ADC" />
+    <Folder Include="MCAL_LAYER\TIMER" />
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>

@@ -1,0 +1,1908 @@
+
+AVR_ATmega32_Drivers.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000930  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000028  00800060  00000930  000009c4  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          0000000f  00800088  00800088  000009ec  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000009ec  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000a1c  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000001b0  00000000  00000000  00000a58  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00001c6a  00000000  00000000  00000c08  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000d40  00000000  00000000  00002872  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000ffc  00000000  00000000  000035b2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000003f8  00000000  00000000  000045b0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000d42  00000000  00000000  000049a8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000011e0  00000000  00000000  000056ea  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000188  00000000  00000000  000068ca  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 73 02 	jmp	0x4e6	; 0x4e6 <__vector_1>
+   8:	0c 94 9c 02 	jmp	0x538	; 0x538 <__vector_2>
+   c:	0c 94 c5 02 	jmp	0x58a	; 0x58a <__vector_3>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 30 03 	jmp	0x660	; 0x660 <__vector_10>
+  2c:	0c 94 ee 02 	jmp	0x5dc	; 0x5dc <__vector_11>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e0 e3       	ldi	r30, 0x30	; 48
+  68:	f9 e0       	ldi	r31, 0x09	; 9
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	a8 38       	cpi	r26, 0x88	; 136
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	20 e0       	ldi	r18, 0x00	; 0
+  78:	a8 e8       	ldi	r26, 0x88	; 136
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	a7 39       	cpi	r26, 0x97	; 151
+  82:	b2 07       	cpc	r27, r18
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 49 00 	call	0x92	; 0x92 <main>
+  8a:	0c 94 96 04 	jmp	0x92c	; 0x92c <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <main>:
+#include "../../MCAL_LAYER/ADC/ADC_CFG.h"
+#include "../../HAL_LAYER/LED_MODULE/LED_Config.h"
+u16 Result=0;
+int main(void)
+{
+	LED_enumError_t retErr=LED_enumInit(&Led1);
+  92:	80 e6       	ldi	r24, 0x60	; 96
+  94:	90 e0       	ldi	r25, 0x00	; 0
+  96:	0e 94 74 00 	call	0xe8	; 0xe8 <LED_enumInit>
+	ADC_enumErrorState_t ReturnError;
+	ReturnError=ADC_Init();
+  9a:	0e 94 ef 00 	call	0x1de	; 0x1de <ADC_Init>
+	while (1)
+	{
+		ReturnError= ADC_StartConversionSync(ADC_SINGLE_CHANNEL0,&Result);
+  9e:	68 e8       	ldi	r22, 0x88	; 136
+  a0:	70 e0       	ldi	r23, 0x00	; 0
+  a2:	80 e0       	ldi	r24, 0x00	; 0
+  a4:	0e 94 fe 00 	call	0x1fc	; 0x1fc <ADC_StartConversionSync>
+		/* ADC Resultion 10 Bit, so the max Value is 1024*/
+		f32 StepSize=(f32)5/(f32)1024;
+		/* This Analog value from 0 volt to 5 Volt*/
+		f32 AnalogVolt=(Result*StepSize);
+  a8:	60 91 88 00 	lds	r22, 0x0088	; 0x800088 <__data_end>
+  ac:	70 91 89 00 	lds	r23, 0x0089	; 0x800089 <__data_end+0x1>
+  b0:	80 e0       	ldi	r24, 0x00	; 0
+  b2:	90 e0       	ldi	r25, 0x00	; 0
+  b4:	0e 94 72 03 	call	0x6e4	; 0x6e4 <__floatunsisf>
+  b8:	20 e0       	ldi	r18, 0x00	; 0
+  ba:	30 e0       	ldi	r19, 0x00	; 0
+  bc:	40 ea       	ldi	r20, 0xA0	; 160
+  be:	5b e3       	ldi	r21, 0x3B	; 59
+  c0:	0e 94 b4 03 	call	0x768	; 0x768 <__mulsf3>
+		LED_enumError_t LedReturnError;
+		if(AnalogVolt>2)
+  c4:	20 e0       	ldi	r18, 0x00	; 0
+  c6:	30 e0       	ldi	r19, 0x00	; 0
+  c8:	40 e0       	ldi	r20, 0x00	; 0
+  ca:	50 e4       	ldi	r21, 0x40	; 64
+  cc:	0e 94 af 03 	call	0x75e	; 0x75e <__gesf2>
+  d0:	18 16       	cp	r1, r24
+  d2:	2c f4       	brge	.+10     	; 0xde <main+0x4c>
+		{
+			LedReturnError=LED_enumTurnOn(&Led1);
+  d4:	80 e6       	ldi	r24, 0x60	; 96
+  d6:	90 e0       	ldi	r25, 0x00	; 0
+  d8:	0e 94 9d 00 	call	0x13a	; 0x13a <LED_enumTurnOn>
+  dc:	e0 cf       	rjmp	.-64     	; 0x9e <main+0xc>
+		}
+		else
+		{
+			LedReturnError=LED_enumTurnOff(&Led1);
+  de:	80 e6       	ldi	r24, 0x60	; 96
+  e0:	90 e0       	ldi	r25, 0x00	; 0
+  e2:	0e 94 bc 00 	call	0x178	; 0x178 <LED_enumTurnOff>
+  e6:	db cf       	rjmp	.-74     	; 0x9e <main+0xc>
+
+000000e8 <LED_enumInit>:
+ * If the LED is configured as ACTIVE_LOW, it sets the logic state to DIO_enumLogicHigh (LED OFF).
+ * @param[in]:Add_strLedConfig Pointer to the LED configuration structure.
+ * @return	 :LED_enumError_t Error status indicating the success or failure of the initialization.
+ */
+LED_enumError_t LED_enumInit(LED_strConfig_t *Add_strLedConfig)
+{
+  e8:	cf 93       	push	r28
+  ea:	df 93       	push	r29
+	LED_enumError_t LED_LocRetErr=LED_enumOk;
+	/**
+	 *brief: (Validation Statement) Make sure that, the user Not Pass a Null Pointer.
+	 */
+	if(NULL==Add_strLedConfig)
+  ec:	00 97       	sbiw	r24, 0x00	; 0
+  ee:	d9 f0       	breq	.+54     	; 0x126 <LED_enumInit+0x3e>
+		LED_LocRetErr=LED_enumNullPointer;
+	}
+	/**
+	 *brief: (Validation Statement) Make sure that, the user Not Pass a LED Configuration not exist !.
+	 */
+	else if(((Add_strLedConfig->LedConfig)>ACTIVE_HIGH)||((Add_strLedConfig->LedConfig)<ACTIVE_LOW))
+  f0:	fc 01       	movw	r30, r24
+  f2:	23 81       	ldd	r18, Z+3	; 0x03
+  f4:	22 30       	cpi	r18, 0x02	; 2
+  f6:	c8 f4       	brcc	.+50     	; 0x12a <LED_enumInit+0x42>
+		LED_LocRetErr=LED_enumWrongConfig;
+	}
+	/**
+	 *brief: (Validation Statement) Make sure that, the user Not Pass a LED Logic not exist !.
+	 */
+	else if(((Add_strLedConfig->Led_Logic)>LED_ON)||((Add_strLedConfig->Led_Logic)<LED_OFF))
+  f8:	22 81       	ldd	r18, Z+2	; 0x02
+  fa:	22 30       	cpi	r18, 0x02	; 2
+  fc:	c0 f4       	brcc	.+48     	; 0x12e <LED_enumInit+0x46>
+  fe:	ec 01       	movw	r28, r24
+	 */
+	else
+	{
+		DIO_enumError_t DIO_LocRetErr=DIO_enumOk;
+		/*LED module in HAL Layer uses DIO module in MCAL Layer to initialize the pins which connected with Led(Layer Abstraction)*/
+		DIO_LocRetErr=PORT_enumSetPinConfig(&(Add_strLedConfig->Led));  
+ 100:	0e 94 84 01 	call	0x308	; 0x308 <PORT_enumSetPinConfig>
+		/* Switch statement based on LED polarity configuration*/
+		switch(Add_strLedConfig->LedConfig)
+ 104:	8b 81       	ldd	r24, Y+3	; 0x03
+ 106:	88 23       	and	r24, r24
+ 108:	41 f0       	breq	.+16     	; 0x11a <LED_enumInit+0x32>
+ 10a:	81 30       	cpi	r24, 0x01	; 1
+ 10c:	91 f4       	brne	.+36     	; 0x132 <LED_enumInit+0x4a>
+		{
+			/*Configuring LED as ACTIVE_HIGH, sets the logic state to DIO_enumLogicLow (LED OFF)*/
+			case ACTIVE_HIGH:	DIO_LocRetErr=DIO_enumSetPin(&(Add_strLedConfig->Led),DIO_enumLogicLow) ;break;
+ 10e:	60 e0       	ldi	r22, 0x00	; 0
+ 110:	ce 01       	movw	r24, r28
+ 112:	0e 94 31 01 	call	0x262	; 0x262 <DIO_enumSetPin>
+ * @param[in]:Add_strLedConfig Pointer to the LED configuration structure.
+ * @return	 :LED_enumError_t Error status indicating the success or failure of the initialization.
+ */
+LED_enumError_t LED_enumInit(LED_strConfig_t *Add_strLedConfig)
+{
+	LED_enumError_t LED_LocRetErr=LED_enumOk;
+ 116:	80 e0       	ldi	r24, 0x00	; 0
+		DIO_LocRetErr=PORT_enumSetPinConfig(&(Add_strLedConfig->Led));  
+		/* Switch statement based on LED polarity configuration*/
+		switch(Add_strLedConfig->LedConfig)
+		{
+			/*Configuring LED as ACTIVE_HIGH, sets the logic state to DIO_enumLogicLow (LED OFF)*/
+			case ACTIVE_HIGH:	DIO_LocRetErr=DIO_enumSetPin(&(Add_strLedConfig->Led),DIO_enumLogicLow) ;break;
+ 118:	0d c0       	rjmp	.+26     	; 0x134 <LED_enumInit+0x4c>
+			/*Configuring LED as ACTIVE_LOW, sets the logic state to DIO_enumLogicHigh (LED OFF)*/
+			case ACTIVE_LOW :	DIO_LocRetErr=DIO_enumSetPin(&(Add_strLedConfig->Led),DIO_enumLogicHigh);break;
+ 11a:	61 e0       	ldi	r22, 0x01	; 1
+ 11c:	ce 01       	movw	r24, r28
+ 11e:	0e 94 31 01 	call	0x262	; 0x262 <DIO_enumSetPin>
+ * @param[in]:Add_strLedConfig Pointer to the LED configuration structure.
+ * @return	 :LED_enumError_t Error status indicating the success or failure of the initialization.
+ */
+LED_enumError_t LED_enumInit(LED_strConfig_t *Add_strLedConfig)
+{
+	LED_enumError_t LED_LocRetErr=LED_enumOk;
+ 122:	80 e0       	ldi	r24, 0x00	; 0
+		switch(Add_strLedConfig->LedConfig)
+		{
+			/*Configuring LED as ACTIVE_HIGH, sets the logic state to DIO_enumLogicLow (LED OFF)*/
+			case ACTIVE_HIGH:	DIO_LocRetErr=DIO_enumSetPin(&(Add_strLedConfig->Led),DIO_enumLogicLow) ;break;
+			/*Configuring LED as ACTIVE_LOW, sets the logic state to DIO_enumLogicHigh (LED OFF)*/
+			case ACTIVE_LOW :	DIO_LocRetErr=DIO_enumSetPin(&(Add_strLedConfig->Led),DIO_enumLogicHigh);break;
+ 124:	07 c0       	rjmp	.+14     	; 0x134 <LED_enumInit+0x4c>
+	/**
+	 *brief: (Validation Statement) Make sure that, the user Not Pass a Null Pointer.
+	 */
+	if(NULL==Add_strLedConfig)
+	{
+		LED_LocRetErr=LED_enumNullPointer;
+ 126:	81 e0       	ldi	r24, 0x01	; 1
+ 128:	05 c0       	rjmp	.+10     	; 0x134 <LED_enumInit+0x4c>
+	/**
+	 *brief: (Validation Statement) Make sure that, the user Not Pass a LED Configuration not exist !.
+	 */
+	else if(((Add_strLedConfig->LedConfig)>ACTIVE_HIGH)||((Add_strLedConfig->LedConfig)<ACTIVE_LOW))
+	{
+		LED_LocRetErr=LED_enumWrongConfig;
+ 12a:	82 e0       	ldi	r24, 0x02	; 2
+ 12c:	03 c0       	rjmp	.+6      	; 0x134 <LED_enumInit+0x4c>
+	/**
+	 *brief: (Validation Statement) Make sure that, the user Not Pass a LED Logic not exist !.
+	 */
+	else if(((Add_strLedConfig->Led_Logic)>LED_ON)||((Add_strLedConfig->Led_Logic)<LED_OFF))
+	{
+		LED_LocRetErr=LED_enumWrongLogic;
+ 12e:	83 e0       	ldi	r24, 0x03	; 3
+ 130:	01 c0       	rjmp	.+2      	; 0x134 <LED_enumInit+0x4c>
+ * @param[in]:Add_strLedConfig Pointer to the LED configuration structure.
+ * @return	 :LED_enumError_t Error status indicating the success or failure of the initialization.
+ */
+LED_enumError_t LED_enumInit(LED_strConfig_t *Add_strLedConfig)
+{
+	LED_enumError_t LED_LocRetErr=LED_enumOk;
+ 132:	80 e0       	ldi	r24, 0x00	; 0
+			case ACTIVE_LOW :	DIO_LocRetErr=DIO_enumSetPin(&(Add_strLedConfig->Led),DIO_enumLogicHigh);break;
+			default: {/*Nothing to Do but For MISRA*/}
+		}
+	}
+	return LED_LocRetErr;
+}
+ 134:	df 91       	pop	r29
+ 136:	cf 91       	pop	r28
+ 138:	08 95       	ret
+
+0000013a <LED_enumTurnOn>:
+	LED_enumError_t LED_LocRetErr = LED_enumOk;
+
+	/**
+	 * @brief: Validation Statement - Ensure that the user does not pass a Null Pointer.
+	 */
+	if (NULL == Add_strLedConfig)
+ 13a:	00 97       	sbiw	r24, 0x00	; 0
+ 13c:	a9 f0       	breq	.+42     	; 0x168 <LED_enumTurnOn+0x2e>
+		LED_LocRetErr = LED_enumNullPointer;
+	}
+	/**
+	 * @brief: Validation Statement - Ensure that the user does not pass a LED Configuration that does not exist!
+	 */
+	else if (((Add_strLedConfig->LedConfig) > ACTIVE_HIGH) || ((Add_strLedConfig->LedConfig) < ACTIVE_LOW))
+ 13e:	fc 01       	movw	r30, r24
+ 140:	23 81       	ldd	r18, Z+3	; 0x03
+ 142:	22 30       	cpi	r18, 0x02	; 2
+ 144:	98 f4       	brcc	.+38     	; 0x16c <LED_enumTurnOn+0x32>
+		LED_LocRetErr = LED_enumWrongConfig;
+	}
+	/**
+	 * @brief: Validation Statement - Ensure that the user does not pass a LED Logic that does not exist!
+	 */
+	else if (((Add_strLedConfig->Led_Logic) > LED_ON) || ((Add_strLedConfig->Led_Logic) < LED_OFF))
+ 146:	32 81       	ldd	r19, Z+2	; 0x02
+ 148:	32 30       	cpi	r19, 0x02	; 2
+ 14a:	90 f4       	brcc	.+36     	; 0x170 <LED_enumTurnOn+0x36>
+	else
+	{
+		DIO_enumError_t DIO_LocRetErr = DIO_enumOk;
+
+		/* Switch statement based on LED polarity configuration */
+		switch (Add_strLedConfig->LedConfig)
+ 14c:	22 23       	and	r18, r18
+ 14e:	39 f0       	breq	.+14     	; 0x15e <LED_enumTurnOn+0x24>
+ 150:	21 30       	cpi	r18, 0x01	; 1
+ 152:	81 f4       	brne	.+32     	; 0x174 <LED_enumTurnOn+0x3a>
+		{
+			case ACTIVE_HIGH:
+				/*Configuring LED as ACTIVE_HIGH, sets the logic state to DIO_enumLogicHigh(LED ON)*/
+				DIO_LocRetErr = DIO_enumSetPin(&(Add_strLedConfig->Led), DIO_enumLogicHigh);break;
+ 154:	61 e0       	ldi	r22, 0x01	; 1
+ 156:	0e 94 31 01 	call	0x262	; 0x262 <DIO_enumSetPin>
+ * @param[in] : Add_strLedConfig Pointer to the LED configuration structure.
+ * @return	  : LED_enumError_t Error status indicating the success or failure of the operation.
+ */
+LED_enumError_t LED_enumTurnOn(LED_strConfig_t *Add_strLedConfig)
+{
+	LED_enumError_t LED_LocRetErr = LED_enumOk;
+ 15a:	80 e0       	ldi	r24, 0x00	; 0
+		/* Switch statement based on LED polarity configuration */
+		switch (Add_strLedConfig->LedConfig)
+		{
+			case ACTIVE_HIGH:
+				/*Configuring LED as ACTIVE_HIGH, sets the logic state to DIO_enumLogicHigh(LED ON)*/
+				DIO_LocRetErr = DIO_enumSetPin(&(Add_strLedConfig->Led), DIO_enumLogicHigh);break;
+ 15c:	08 95       	ret
+			case ACTIVE_LOW:
+				/*Configuring LED as ACTIVE_LOW, sets the logic state to DIO_enumLogicLow (LED ON)*/
+				DIO_LocRetErr = DIO_enumSetPin(&(Add_strLedConfig->Led), DIO_enumLogicLow);break;
+ 15e:	60 e0       	ldi	r22, 0x00	; 0
+ 160:	0e 94 31 01 	call	0x262	; 0x262 <DIO_enumSetPin>
+ * @param[in] : Add_strLedConfig Pointer to the LED configuration structure.
+ * @return	  : LED_enumError_t Error status indicating the success or failure of the operation.
+ */
+LED_enumError_t LED_enumTurnOn(LED_strConfig_t *Add_strLedConfig)
+{
+	LED_enumError_t LED_LocRetErr = LED_enumOk;
+ 164:	80 e0       	ldi	r24, 0x00	; 0
+			case ACTIVE_HIGH:
+				/*Configuring LED as ACTIVE_HIGH, sets the logic state to DIO_enumLogicHigh(LED ON)*/
+				DIO_LocRetErr = DIO_enumSetPin(&(Add_strLedConfig->Led), DIO_enumLogicHigh);break;
+			case ACTIVE_LOW:
+				/*Configuring LED as ACTIVE_LOW, sets the logic state to DIO_enumLogicLow (LED ON)*/
+				DIO_LocRetErr = DIO_enumSetPin(&(Add_strLedConfig->Led), DIO_enumLogicLow);break;
+ 166:	08 95       	ret
+	/**
+	 * @brief: Validation Statement - Ensure that the user does not pass a Null Pointer.
+	 */
+	if (NULL == Add_strLedConfig)
+	{
+		LED_LocRetErr = LED_enumNullPointer;
+ 168:	81 e0       	ldi	r24, 0x01	; 1
+ 16a:	08 95       	ret
+	/**
+	 * @brief: Validation Statement - Ensure that the user does not pass a LED Configuration that does not exist!
+	 */
+	else if (((Add_strLedConfig->LedConfig) > ACTIVE_HIGH) || ((Add_strLedConfig->LedConfig) < ACTIVE_LOW))
+	{
+		LED_LocRetErr = LED_enumWrongConfig;
+ 16c:	82 e0       	ldi	r24, 0x02	; 2
+ 16e:	08 95       	ret
+	/**
+	 * @brief: Validation Statement - Ensure that the user does not pass a LED Logic that does not exist!
+	 */
+	else if (((Add_strLedConfig->Led_Logic) > LED_ON) || ((Add_strLedConfig->Led_Logic) < LED_OFF))
+	{
+		LED_LocRetErr = LED_enumWrongLogic;
+ 170:	83 e0       	ldi	r24, 0x03	; 3
+ 172:	08 95       	ret
+ * @param[in] : Add_strLedConfig Pointer to the LED configuration structure.
+ * @return	  : LED_enumError_t Error status indicating the success or failure of the operation.
+ */
+LED_enumError_t LED_enumTurnOn(LED_strConfig_t *Add_strLedConfig)
+{
+	LED_enumError_t LED_LocRetErr = LED_enumOk;
+ 174:	80 e0       	ldi	r24, 0x00	; 0
+				}
+		}
+	}
+
+	return LED_LocRetErr;
+}
+ 176:	08 95       	ret
+
+00000178 <LED_enumTurnOff>:
+{
+	LED_enumError_t LED_LocRetErr=LED_enumOk;
+	/**
+	 *brief: (Validation Statement) Make sure that, the user Not Pass a Null Pointer.
+	 */
+	if(NULL==Add_strLedConfig)
+ 178:	00 97       	sbiw	r24, 0x00	; 0
+ 17a:	a9 f0       	breq	.+42     	; 0x1a6 <LED_enumTurnOff+0x2e>
+		LED_LocRetErr=LED_enumNullPointer;
+	}
+	/**
+	 *brief: (Validation Statement) Make sure that, the user Not Pass a LED Configuration not exist !.
+	 */
+	else if(((Add_strLedConfig->LedConfig)>ACTIVE_HIGH)||((Add_strLedConfig->LedConfig)<ACTIVE_LOW))
+ 17c:	fc 01       	movw	r30, r24
+ 17e:	23 81       	ldd	r18, Z+3	; 0x03
+ 180:	22 30       	cpi	r18, 0x02	; 2
+ 182:	98 f4       	brcc	.+38     	; 0x1aa <LED_enumTurnOff+0x32>
+		LED_LocRetErr=LED_enumWrongConfig;
+	}
+	/**
+	 *brief: (Validation Statement) Make sure that, the user Not Pass a LED Logic not exist !.
+	 */
+	else if(((Add_strLedConfig->Led_Logic)>LED_ON)||((Add_strLedConfig->Led_Logic)<LED_OFF))
+ 184:	32 81       	ldd	r19, Z+2	; 0x02
+ 186:	32 30       	cpi	r19, 0x02	; 2
+ 188:	90 f4       	brcc	.+36     	; 0x1ae <LED_enumTurnOff+0x36>
+	else
+	{
+		DIO_enumError_t DIO_LocRetErr=DIO_enumOk;
+		
+		/* Switch statement based on LED polarity configuration*/
+		switch(Add_strLedConfig->LedConfig)
+ 18a:	22 23       	and	r18, r18
+ 18c:	39 f0       	breq	.+14     	; 0x19c <LED_enumTurnOff+0x24>
+ 18e:	21 30       	cpi	r18, 0x01	; 1
+ 190:	81 f4       	brne	.+32     	; 0x1b2 <LED_enumTurnOff+0x3a>
+		{
+			/*Configuring LED as ACTIVE_HIGH, sets the logic state to DIO_enumLogicLow (LED OFF)*/
+			case ACTIVE_HIGH:	DIO_LocRetErr=DIO_enumSetPin(&(Add_strLedConfig->Led),DIO_enumLogicLow) ;break;
+ 192:	60 e0       	ldi	r22, 0x00	; 0
+ 194:	0e 94 31 01 	call	0x262	; 0x262 <DIO_enumSetPin>
+ * @param[in]:Add_strLedConfig Pointer to the LED configuration structure > @Ref: LED_strConfig_t.
+ * @return	 :LED_enumError_t Error status indicating the success or failure of the Function.
+ */
+LED_enumError_t LED_enumTurnOff(LED_strConfig_t *Add_strLedConfig)
+{
+	LED_enumError_t LED_LocRetErr=LED_enumOk;
+ 198:	80 e0       	ldi	r24, 0x00	; 0
+		
+		/* Switch statement based on LED polarity configuration*/
+		switch(Add_strLedConfig->LedConfig)
+		{
+			/*Configuring LED as ACTIVE_HIGH, sets the logic state to DIO_enumLogicLow (LED OFF)*/
+			case ACTIVE_HIGH:	DIO_LocRetErr=DIO_enumSetPin(&(Add_strLedConfig->Led),DIO_enumLogicLow) ;break;
+ 19a:	08 95       	ret
+			/*Configuring LED as ACTIVE_LOW, sets the logic state to DIO_enumLogicHigh (LED OFF)*/
+			case ACTIVE_LOW :	DIO_LocRetErr=DIO_enumSetPin(&(Add_strLedConfig->Led),DIO_enumLogicHigh);break;
+ 19c:	61 e0       	ldi	r22, 0x01	; 1
+ 19e:	0e 94 31 01 	call	0x262	; 0x262 <DIO_enumSetPin>
+ * @param[in]:Add_strLedConfig Pointer to the LED configuration structure > @Ref: LED_strConfig_t.
+ * @return	 :LED_enumError_t Error status indicating the success or failure of the Function.
+ */
+LED_enumError_t LED_enumTurnOff(LED_strConfig_t *Add_strLedConfig)
+{
+	LED_enumError_t LED_LocRetErr=LED_enumOk;
+ 1a2:	80 e0       	ldi	r24, 0x00	; 0
+		switch(Add_strLedConfig->LedConfig)
+		{
+			/*Configuring LED as ACTIVE_HIGH, sets the logic state to DIO_enumLogicLow (LED OFF)*/
+			case ACTIVE_HIGH:	DIO_LocRetErr=DIO_enumSetPin(&(Add_strLedConfig->Led),DIO_enumLogicLow) ;break;
+			/*Configuring LED as ACTIVE_LOW, sets the logic state to DIO_enumLogicHigh (LED OFF)*/
+			case ACTIVE_LOW :	DIO_LocRetErr=DIO_enumSetPin(&(Add_strLedConfig->Led),DIO_enumLogicHigh);break;
+ 1a4:	08 95       	ret
+	/**
+	 *brief: (Validation Statement) Make sure that, the user Not Pass a Null Pointer.
+	 */
+	if(NULL==Add_strLedConfig)
+	{
+		LED_LocRetErr=LED_enumNullPointer;
+ 1a6:	81 e0       	ldi	r24, 0x01	; 1
+ 1a8:	08 95       	ret
+	/**
+	 *brief: (Validation Statement) Make sure that, the user Not Pass a LED Configuration not exist !.
+	 */
+	else if(((Add_strLedConfig->LedConfig)>ACTIVE_HIGH)||((Add_strLedConfig->LedConfig)<ACTIVE_LOW))
+	{
+		LED_LocRetErr=LED_enumWrongConfig;
+ 1aa:	82 e0       	ldi	r24, 0x02	; 2
+ 1ac:	08 95       	ret
+	/**
+	 *brief: (Validation Statement) Make sure that, the user Not Pass a LED Logic not exist !.
+	 */
+	else if(((Add_strLedConfig->Led_Logic)>LED_ON)||((Add_strLedConfig->Led_Logic)<LED_OFF))
+	{
+		LED_LocRetErr=LED_enumWrongLogic;
+ 1ae:	83 e0       	ldi	r24, 0x03	; 3
+ 1b0:	08 95       	ret
+ * @param[in]:Add_strLedConfig Pointer to the LED configuration structure > @Ref: LED_strConfig_t.
+ * @return	 :LED_enumError_t Error status indicating the success or failure of the Function.
+ */
+LED_enumError_t LED_enumTurnOff(LED_strConfig_t *Add_strLedConfig)
+{
+	LED_enumError_t LED_LocRetErr=LED_enumOk;
+ 1b2:	80 e0       	ldi	r24, 0x00	; 0
+			case ACTIVE_LOW :	DIO_LocRetErr=DIO_enumSetPin(&(Add_strLedConfig->Led),DIO_enumLogicHigh);break;
+			default: {/*Nothing to Do but For MISRA*/}
+		}
+	}
+	return LED_LocRetErr;
+}
+ 1b4:	08 95       	ret
+
+000001b6 <ADC_SelectChannel>:
+/********************************************************************************************************/
+/*****************************************Static Functions Prototype*************************************/
+/********************************************************************************************************/
+static void ADC_SelectChannel(u8 Channel)
+{
+	u8 Loc_ADMUX=ADMUX;
+ 1b6:	97 b1       	in	r25, 0x07	; 7
+	Loc_ADMUX&=~ADC_CHANNELS_CLEAR_MASK;
+ 1b8:	90 7e       	andi	r25, 0xE0	; 224
+	Loc_ADMUX|=Channel;
+ 1ba:	89 2b       	or	r24, r25
+	ADMUX=Loc_ADMUX;
+ 1bc:	87 b9       	out	0x07, r24	; 7
+ 1be:	08 95       	ret
+
+000001c0 <ADC_GetResult>:
+
+	#ifdef ADC_ADJUST_TYPE
+	#if (ADC_ADJUST_TYPE==ADC_LEFT_ADJUST_RESULT_ON)
+	ADC_Result=((ADCL>>6)||((u16)ADCH<<2));
+	#elif (ADC_ADJUST_TYPE==ADC_RIGHT_ADJUST_RESULT_ON)
+	ADC_Result= (u16)ADCL||((u16)ADCH<<8);
+ 1c0:	84 b1       	in	r24, 0x04	; 4
+ 1c2:	81 11       	cpse	r24, r1
+ 1c4:	06 c0       	rjmp	.+12     	; 0x1d2 <ADC_GetResult+0x12>
+ 1c6:	85 b1       	in	r24, 0x05	; 5
+ 1c8:	88 23       	and	r24, r24
+ 1ca:	31 f0       	breq	.+12     	; 0x1d8 <ADC_GetResult+0x18>
+ 1cc:	81 e0       	ldi	r24, 0x01	; 1
+ 1ce:	90 e0       	ldi	r25, 0x00	; 0
+ 1d0:	08 95       	ret
+ 1d2:	81 e0       	ldi	r24, 0x01	; 1
+ 1d4:	90 e0       	ldi	r25, 0x00	; 0
+ 1d6:	08 95       	ret
+ 1d8:	80 e0       	ldi	r24, 0x00	; 0
+ 1da:	90 e0       	ldi	r25, 0x00	; 0
+	#endif
+	#endif
+	return ADC_Result;
+}
+ 1dc:	08 95       	ret
+
+000001de <ADC_Init>:
+/********************************************************************************************************/
+
+ADC_enumErrorState_t ADC_Init(void)
+{
+	ADC_enumErrorState_t RetrunError=ADC_OK;
+	u8 LocRegister=ADMUX;
+ 1de:	87 b1       	in	r24, 0x07	; 7
+ 1e0:	8f 71       	andi	r24, 0x1F	; 31
+	/* Set ADC Voltage Reference*/
+	LocRegister&=~ADC_VOLT_REF_CLEAR_MASK;
+	LocRegister|=ADC_VOLT_REF;
+	/* Set Result Type Left/Right */
+	LocRegister&=~ADC_RESULT_TYPE_CLEAR_MASK;
+ 1e2:	80 64       	ori	r24, 0x40	; 64
+	LocRegister|=ADC_ADJUST_TYPE;
+	ADMUX=LocRegister;
+ 1e4:	87 b9       	out	0x07, r24	; 7
+	/* Set Prescaler Bits*/
+	LocRegister=ADCSRA;
+ 1e6:	86 b1       	in	r24, 0x06	; 6
+ 1e8:	80 7d       	andi	r24, 0xD0	; 208
+	/* Select ADC Conversion Mode*/
+	LocRegister&=~ADC_CONVERSION_MODE_CLEAR_MASK;
+	LocRegister|=ADC_CONVERSION_MODE;
+	/* Select ADC Interrupt State (Enable or Disable) */
+	LocRegister&=~ADC_INTERRUPT_CLEAR_MASK;
+	LocRegister|=ADC_INTERRUPT_STATE;
+ 1ea:	8b 60       	ori	r24, 0x0B	; 11
+	ADCSRA=LocRegister;
+ 1ec:	86 b9       	out	0x06, r24	; 6
+	/* If ADC_INTERRUPT_ENABLE, Enable System Global Interrupt*/
+	#ifdef ADC_INTERRUPT_STATE
+	#if(ADC_INTERRUPT_STATE==ADC_INTERRUPT_ENABLE)
+	SREG|=(1<<GIE_BIT);
+ 1ee:	8f b7       	in	r24, 0x3f	; 63
+ 1f0:	80 68       	ori	r24, 0x80	; 128
+ 1f2:	8f bf       	out	0x3f, r24	; 63
+	LocRegister&=~ADC_AUTO_TRIGGER_SOURCE_CLEAR_MASK;
+	LocRegister|=ADC_AUTO_TRIGGER_SOURCE;
+	#endif
+	#endif
+	/* Enable ADC */
+	ADCSRA|=ADC_ENABLE;
+ 1f4:	86 b1       	in	r24, 0x06	; 6
+ 1f6:	80 68       	ori	r24, 0x80	; 128
+ 1f8:	86 b9       	out	0x06, r24	; 6
+}
+ 1fa:	08 95       	ret
+
+000001fc <ADC_StartConversionSync>:
+ADC_enumErrorState_t ADC_StartConversionSync(u8 ADC_Channel,u16* Result)
+{
+ 1fc:	cf 93       	push	r28
+ 1fe:	df 93       	push	r29
+	u32 TimerOut=0;
+	ADC_enumErrorState_t ReturnError;
+	if(Result==NULL)
+ 200:	61 15       	cp	r22, r1
+ 202:	71 05       	cpc	r23, r1
+ 204:	31 f1       	breq	.+76     	; 0x252 <ADC_StartConversionSync+0x56>
+	{
+		ReturnError=ADC_NullPointer;
+	}
+	else if(ADC_Channel>ADC_SINGLE_CHANNEL7)
+ 206:	88 30       	cpi	r24, 0x08	; 8
+ 208:	30 f5       	brcc	.+76     	; 0x256 <ADC_StartConversionSync+0x5a>
+ 20a:	eb 01       	movw	r28, r22
+	{
+		ReturnError=ADC_NOK;
+	}
+	else
+	{
+		ADC_SelectChannel(ADC_Channel);
+ 20c:	0e 94 db 00 	call	0x1b6	; 0x1b6 <ADC_SelectChannel>
+		/* Enable ADC Interrupt */
+		ADCSRA|=(1<<ADIE);
+ 210:	86 b1       	in	r24, 0x06	; 6
+ 212:	88 60       	ori	r24, 0x08	; 8
+ 214:	86 b9       	out	0x06, r24	; 6
+		/* Start Conversion */
+		ADCSRA|=ADC_START_CONVERSION;
+ 216:	86 b1       	in	r24, 0x06	; 6
+ 218:	80 64       	ori	r24, 0x40	; 64
+ 21a:	86 b9       	out	0x06, r24	; 6
+	/* Enable ADC */
+	ADCSRA|=ADC_ENABLE;
+}
+ADC_enumErrorState_t ADC_StartConversionSync(u8 ADC_Channel,u16* Result)
+{
+	u32 TimerOut=0;
+ 21c:	80 e0       	ldi	r24, 0x00	; 0
+ 21e:	90 e0       	ldi	r25, 0x00	; 0
+ 220:	dc 01       	movw	r26, r24
+		ADC_SelectChannel(ADC_Channel);
+		/* Enable ADC Interrupt */
+		ADCSRA|=(1<<ADIE);
+		/* Start Conversion */
+		ADCSRA|=ADC_START_CONVERSION;
+		while ((!((ADCSRA>>ADIF)&1))&&(TimerOut<100000))
+ 222:	03 c0       	rjmp	.+6      	; 0x22a <ADC_StartConversionSync+0x2e>
+		{
+			TimerOut++;
+ 224:	01 96       	adiw	r24, 0x01	; 1
+ 226:	a1 1d       	adc	r26, r1
+ 228:	b1 1d       	adc	r27, r1
+		ADC_SelectChannel(ADC_Channel);
+		/* Enable ADC Interrupt */
+		ADCSRA|=(1<<ADIE);
+		/* Start Conversion */
+		ADCSRA|=ADC_START_CONVERSION;
+		while ((!((ADCSRA>>ADIF)&1))&&(TimerOut<100000))
+ 22a:	34 99       	sbic	0x06, 4	; 6
+ 22c:	07 c0       	rjmp	.+14     	; 0x23c <ADC_StartConversionSync+0x40>
+ 22e:	80 3a       	cpi	r24, 0xA0	; 160
+ 230:	26 e8       	ldi	r18, 0x86	; 134
+ 232:	92 07       	cpc	r25, r18
+ 234:	21 e0       	ldi	r18, 0x01	; 1
+ 236:	a2 07       	cpc	r26, r18
+ 238:	b1 05       	cpc	r27, r1
+ 23a:	a0 f3       	brcs	.-24     	; 0x224 <ADC_StartConversionSync+0x28>
+		{
+			TimerOut++;
+		}
+		if(TimerOut==100000)
+ 23c:	80 3a       	cpi	r24, 0xA0	; 160
+ 23e:	96 48       	sbci	r25, 0x86	; 134
+ 240:	a1 40       	sbci	r26, 0x01	; 1
+ 242:	b1 05       	cpc	r27, r1
+ 244:	51 f0       	breq	.+20     	; 0x25a <ADC_StartConversionSync+0x5e>
+			/* Time Out*/
+			ReturnError=ADC_NOK;
+		}
+		else
+		{
+			*Result=ADC_GetResult();
+ 246:	0e 94 e0 00 	call	0x1c0	; 0x1c0 <ADC_GetResult>
+ 24a:	99 83       	std	Y+1, r25	; 0x01
+ 24c:	88 83       	st	Y, r24
+			ReturnError=ADC_OK;
+ 24e:	80 e0       	ldi	r24, 0x00	; 0
+ 250:	05 c0       	rjmp	.+10     	; 0x25c <ADC_StartConversionSync+0x60>
+{
+	u32 TimerOut=0;
+	ADC_enumErrorState_t ReturnError;
+	if(Result==NULL)
+	{
+		ReturnError=ADC_NullPointer;
+ 252:	82 e0       	ldi	r24, 0x02	; 2
+ 254:	03 c0       	rjmp	.+6      	; 0x25c <ADC_StartConversionSync+0x60>
+	}
+	else if(ADC_Channel>ADC_SINGLE_CHANNEL7)
+	{
+		ReturnError=ADC_NOK;
+ 256:	81 e0       	ldi	r24, 0x01	; 1
+ 258:	01 c0       	rjmp	.+2      	; 0x25c <ADC_StartConversionSync+0x60>
+			TimerOut++;
+		}
+		if(TimerOut==100000)
+		{
+			/* Time Out*/
+			ReturnError=ADC_NOK;
+ 25a:	81 e0       	ldi	r24, 0x01	; 1
+			*Result=ADC_GetResult();
+			ReturnError=ADC_OK;
+		}
+	}
+	return ReturnError;
+}
+ 25c:	df 91       	pop	r29
+ 25e:	cf 91       	pop	r28
+ 260:	08 95       	ret
+
+00000262 <DIO_enumSetPin>:
+	DIO_enumError_t DIO_LocEnumRetErr=DIO_enumOk;		/*Initialize the Return Error State by Default Ok*/
+	
+	/**
+	 *brief: (Validation Statement) Make sure that, the user Not Pass a Null Pointer.
+	 */
+	if(NULL==Add_strPinConfig)
+ 262:	00 97       	sbiw	r24, 0x00	; 0
+ 264:	09 f4       	brne	.+2      	; 0x268 <DIO_enumSetPin+0x6>
+ 266:	48 c0       	rjmp	.+144    	; 0x2f8 <DIO_enumSetPin+0x96>
+		DIO_LocEnumRetErr=DIO_enumNullPointer;
+	}
+	/**
+	 *brief: (Validation Statement) Make sure that, the user does Not Pass a Port Not exist in MCU.
+	 */
+	else if(((Add_strPinConfig->portNumber)>MAX_PORT_NUM)||((Add_strPinConfig->portNumber)<MIN_PORT_NUM))
+ 268:	fc 01       	movw	r30, r24
+ 26a:	20 81       	ld	r18, Z
+ 26c:	27 70       	andi	r18, 0x07	; 7
+ 26e:	30 e0       	ldi	r19, 0x00	; 0
+ 270:	24 30       	cpi	r18, 0x04	; 4
+ 272:	31 05       	cpc	r19, r1
+ 274:	0c f0       	brlt	.+2      	; 0x278 <DIO_enumSetPin+0x16>
+ 276:	42 c0       	rjmp	.+132    	; 0x2fc <DIO_enumSetPin+0x9a>
+		DIO_LocEnumRetErr=DIO_enumWrongPort;
+	}
+	/**
+	 *brief: (Validation Statement) Make sure that, the user does Not Pass a Pin Not exist in MCU.
+	 */
+	else if(((Add_strPinConfig->pinNumber)>MAX_PIN_NUM)||((Add_strPinConfig->pinNumber)<MIN_PIN_NUM))
+ 278:	a0 81       	ld	r26, Z
+ 27a:	a6 95       	lsr	r26
+ 27c:	a6 95       	lsr	r26
+ 27e:	a6 95       	lsr	r26
+ 280:	a7 70       	andi	r26, 0x07	; 7
+		DIO_LocEnumRetErr=DIO_enumWrongPin;
+	}
+	/**
+	 *brief: (Validation Statement) Make sure that, the user does Not Pass a Direction Config Not exist.
+	 */
+	else if(((Add_strPinConfig->pinDirection)==DIO_enumInputInternalPU)||((Add_strPinConfig->pinDirection)==DIO_enumInputExternalPD))
+ 282:	40 81       	ld	r20, Z
+ 284:	42 95       	swap	r20
+ 286:	46 95       	lsr	r20
+ 288:	46 95       	lsr	r20
+ 28a:	43 70       	andi	r20, 0x03	; 3
+ 28c:	81 81       	ldd	r24, Z+1	; 0x01
+ 28e:	81 70       	andi	r24, 0x01	; 1
+ 290:	88 0f       	add	r24, r24
+ 292:	88 0f       	add	r24, r24
+ 294:	84 2b       	or	r24, r20
+ 296:	8a 5f       	subi	r24, 0xFA	; 250
+ 298:	87 70       	andi	r24, 0x07	; 7
+ 29a:	82 30       	cpi	r24, 0x02	; 2
+ 29c:	88 f1       	brcs	.+98     	; 0x300 <DIO_enumSetPin+0x9e>
+	/**
+	 *brief: Everything is Ok.
+	 */
+	else
+	{
+		switch(Copy_enumLogic)
+ 29e:	66 23       	and	r22, r22
+ 2a0:	b1 f0       	breq	.+44     	; 0x2ce <DIO_enumSetPin+0x6c>
+ 2a2:	61 30       	cpi	r22, 0x01	; 1
+ 2a4:	79 f5       	brne	.+94     	; 0x304 <DIO_enumSetPin+0xa2>
+		{
+			case DIO_enumLogicHigh: SET_BIT(*PORTX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);break;
+ 2a6:	22 0f       	add	r18, r18
+ 2a8:	33 1f       	adc	r19, r19
+ 2aa:	f9 01       	movw	r30, r18
+ 2ac:	ec 59       	subi	r30, 0x9C	; 156
+ 2ae:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2b0:	01 90       	ld	r0, Z+
+ 2b2:	f0 81       	ld	r31, Z
+ 2b4:	e0 2d       	mov	r30, r0
+ 2b6:	20 81       	ld	r18, Z
+ 2b8:	81 e0       	ldi	r24, 0x01	; 1
+ 2ba:	90 e0       	ldi	r25, 0x00	; 0
+ 2bc:	02 c0       	rjmp	.+4      	; 0x2c2 <DIO_enumSetPin+0x60>
+ 2be:	88 0f       	add	r24, r24
+ 2c0:	99 1f       	adc	r25, r25
+ 2c2:	aa 95       	dec	r26
+ 2c4:	e2 f7       	brpl	.-8      	; 0x2be <DIO_enumSetPin+0x5c>
+ 2c6:	82 2b       	or	r24, r18
+ 2c8:	80 83       	st	Z, r24
+ *@param : Logic State(HIGH/LOW).
+ *@return: Error State.                                                                      
+ */
+DIO_enumError_t DIO_enumSetPin(const DIO_strPinConfig_t *Add_strPinConfig,DIO_enumLogicState_t Copy_enumLogic)
+{
+	DIO_enumError_t DIO_LocEnumRetErr=DIO_enumOk;		/*Initialize the Return Error State by Default Ok*/
+ 2ca:	80 e0       	ldi	r24, 0x00	; 0
+	 */
+	else
+	{
+		switch(Copy_enumLogic)
+		{
+			case DIO_enumLogicHigh: SET_BIT(*PORTX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);break;
+ 2cc:	08 95       	ret
+			case DIO_enumLogicLow :CLEAR_BIT(*PORTX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);break;
+ 2ce:	22 0f       	add	r18, r18
+ 2d0:	33 1f       	adc	r19, r19
+ 2d2:	f9 01       	movw	r30, r18
+ 2d4:	ec 59       	subi	r30, 0x9C	; 156
+ 2d6:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2d8:	01 90       	ld	r0, Z+
+ 2da:	f0 81       	ld	r31, Z
+ 2dc:	e0 2d       	mov	r30, r0
+ 2de:	20 81       	ld	r18, Z
+ 2e0:	81 e0       	ldi	r24, 0x01	; 1
+ 2e2:	90 e0       	ldi	r25, 0x00	; 0
+ 2e4:	02 c0       	rjmp	.+4      	; 0x2ea <DIO_enumSetPin+0x88>
+ 2e6:	88 0f       	add	r24, r24
+ 2e8:	99 1f       	adc	r25, r25
+ 2ea:	aa 95       	dec	r26
+ 2ec:	e2 f7       	brpl	.-8      	; 0x2e6 <DIO_enumSetPin+0x84>
+ 2ee:	80 95       	com	r24
+ 2f0:	82 23       	and	r24, r18
+ 2f2:	80 83       	st	Z, r24
+ *@param : Logic State(HIGH/LOW).
+ *@return: Error State.                                                                      
+ */
+DIO_enumError_t DIO_enumSetPin(const DIO_strPinConfig_t *Add_strPinConfig,DIO_enumLogicState_t Copy_enumLogic)
+{
+	DIO_enumError_t DIO_LocEnumRetErr=DIO_enumOk;		/*Initialize the Return Error State by Default Ok*/
+ 2f4:	80 e0       	ldi	r24, 0x00	; 0
+	else
+	{
+		switch(Copy_enumLogic)
+		{
+			case DIO_enumLogicHigh: SET_BIT(*PORTX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);break;
+			case DIO_enumLogicLow :CLEAR_BIT(*PORTX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);break;
+ 2f6:	08 95       	ret
+	/**
+	 *brief: (Validation Statement) Make sure that, the user Not Pass a Null Pointer.
+	 */
+	if(NULL==Add_strPinConfig)
+	{
+		DIO_LocEnumRetErr=DIO_enumNullPointer;
+ 2f8:	81 e0       	ldi	r24, 0x01	; 1
+ 2fa:	08 95       	ret
+	/**
+	 *brief: (Validation Statement) Make sure that, the user does Not Pass a Port Not exist in MCU.
+	 */
+	else if(((Add_strPinConfig->portNumber)>MAX_PORT_NUM)||((Add_strPinConfig->portNumber)<MIN_PORT_NUM))
+	{
+		DIO_LocEnumRetErr=DIO_enumWrongPort;
+ 2fc:	82 e0       	ldi	r24, 0x02	; 2
+ 2fe:	08 95       	ret
+	/**
+	 *brief: (Validation Statement) Make sure that, the user does Not Pass a Direction Config Not exist.
+	 */
+	else if(((Add_strPinConfig->pinDirection)==DIO_enumInputInternalPU)||((Add_strPinConfig->pinDirection)==DIO_enumInputExternalPD))
+	{
+		DIO_LocEnumRetErr=DIO_enumWrongConfig;
+ 300:	84 e0       	ldi	r24, 0x04	; 4
+ 302:	08 95       	ret
+ *@param : Logic State(HIGH/LOW).
+ *@return: Error State.                                                                      
+ */
+DIO_enumError_t DIO_enumSetPin(const DIO_strPinConfig_t *Add_strPinConfig,DIO_enumLogicState_t Copy_enumLogic)
+{
+	DIO_enumError_t DIO_LocEnumRetErr=DIO_enumOk;		/*Initialize the Return Error State by Default Ok*/
+ 304:	80 e0       	ldi	r24, 0x00	; 0
+			default: { /*Nothing To Do but For MISRA*/}
+		}
+	}
+	
+	return DIO_LocEnumRetErr;
+}
+ 306:	08 95       	ret
+
+00000308 <PORT_enumSetPinConfig>:
+	DIO_enumError_t PORT_LocEnumRetErr=DIO_enumOk;		/*Initialize the Return Error State by Default Ok*/	
+		        
+	/**
+	 *brief: (Validation Statement) Make sure that, the user Not Pass a Null Pointer.
+	 */
+	if(NULL==Add_strPinConfig)
+ 308:	00 97       	sbiw	r24, 0x00	; 0
+ 30a:	09 f4       	brne	.+2      	; 0x30e <PORT_enumSetPinConfig+0x6>
+ 30c:	e4 c0       	rjmp	.+456    	; 0x4d6 <__EEPROM_REGION_LENGTH__+0xd6>
+		PORT_LocEnumRetErr=DIO_enumNullPointer;
+	}
+	/**
+	 *brief: (Validation Statement) Make sure that, the user does Not Pass a Port Not exist in MCU.
+	 */
+	else if(((Add_strPinConfig->portNumber)>MAX_PORT_NUM)||((Add_strPinConfig->portNumber)<MIN_PORT_NUM))
+ 30e:	dc 01       	movw	r26, r24
+ 310:	2c 91       	ld	r18, X
+ 312:	27 70       	andi	r18, 0x07	; 7
+ 314:	30 e0       	ldi	r19, 0x00	; 0
+ 316:	24 30       	cpi	r18, 0x04	; 4
+ 318:	31 05       	cpc	r19, r1
+ 31a:	0c f0       	brlt	.+2      	; 0x31e <PORT_enumSetPinConfig+0x16>
+ 31c:	de c0       	rjmp	.+444    	; 0x4da <__EEPROM_REGION_LENGTH__+0xda>
+		PORT_LocEnumRetErr=DIO_enumWrongPort;
+	}
+	/**
+	 *brief: (Validation Statement) Make sure that, the user does Not Pass a Pin Not exist in MCU.
+	 */
+	else if(((Add_strPinConfig->pinNumber)>MAX_PIN_NUM)||((Add_strPinConfig->pinNumber)<MIN_PIN_NUM))
+ 31e:	4c 91       	ld	r20, X
+ 320:	46 95       	lsr	r20
+ 322:	46 95       	lsr	r20
+ 324:	46 95       	lsr	r20
+ 326:	47 70       	andi	r20, 0x07	; 7
+		PORT_LocEnumRetErr=DIO_enumWrongPin;
+	}
+	/**
+	 *brief: (Validation Statement) Make sure that, the user does Not Pass a Direction Config Not exist.
+	 */
+	else if(((Add_strPinConfig->pinDirection)>MAX_DIR_OPTION)||((Add_strPinConfig->pinDirection)<MIN_DIR_OPTION))
+ 328:	6c 91       	ld	r22, X
+ 32a:	76 2f       	mov	r23, r22
+ 32c:	72 95       	swap	r23
+ 32e:	76 95       	lsr	r23
+ 330:	76 95       	lsr	r23
+ 332:	73 70       	andi	r23, 0x03	; 3
+ 334:	11 96       	adiw	r26, 0x01	; 1
+ 336:	6c 91       	ld	r22, X
+ 338:	61 70       	andi	r22, 0x01	; 1
+ 33a:	66 0f       	add	r22, r22
+ 33c:	66 0f       	add	r22, r22
+ 33e:	67 2b       	or	r22, r23
+ 340:	e6 2f       	mov	r30, r22
+ 342:	f0 e0       	ldi	r31, 0x00	; 0
+ 344:	34 97       	sbiw	r30, 0x04	; 4
+ 346:	0c f0       	brlt	.+2      	; 0x34a <PORT_enumSetPinConfig+0x42>
+ 348:	ca c0       	rjmp	.+404    	; 0x4de <__EEPROM_REGION_LENGTH__+0xde>
+	 *brief: Everything is Ok.
+	 */
+	else
+	{
+		PORT_u8InitType=INITIALIZED_BY_PIN;    /*Set the flag by Initialization type*/
+		switch(Add_strPinConfig->pinDirection)
+ 34a:	61 30       	cpi	r22, 0x01	; 1
+ 34c:	b9 f1       	breq	.+110    	; 0x3bc <PORT_enumSetPinConfig+0xb4>
+ 34e:	38 f0       	brcs	.+14     	; 0x35e <PORT_enumSetPinConfig+0x56>
+ 350:	62 30       	cpi	r22, 0x02	; 2
+ 352:	09 f4       	brne	.+2      	; 0x356 <PORT_enumSetPinConfig+0x4e>
+ 354:	61 c0       	rjmp	.+194    	; 0x418 <__EEPROM_REGION_LENGTH__+0x18>
+ 356:	63 30       	cpi	r22, 0x03	; 3
+ 358:	09 f4       	brne	.+2      	; 0x35c <PORT_enumSetPinConfig+0x54>
+ 35a:	8d c0       	rjmp	.+282    	; 0x476 <__EEPROM_REGION_LENGTH__+0x76>
+ 35c:	c2 c0       	rjmp	.+388    	; 0x4e2 <__EEPROM_REGION_LENGTH__+0xe2>
+		{
+			case DIO_enumOutputLow: 
+			{
+				SET_BIT(*DDRX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);
+ 35e:	22 0f       	add	r18, r18
+ 360:	33 1f       	adc	r19, r19
+ 362:	f9 01       	movw	r30, r18
+ 364:	e4 59       	subi	r30, 0x94	; 148
+ 366:	ff 4f       	sbci	r31, 0xFF	; 255
+ 368:	01 90       	ld	r0, Z+
+ 36a:	f0 81       	ld	r31, Z
+ 36c:	e0 2d       	mov	r30, r0
+ 36e:	60 81       	ld	r22, Z
+ 370:	21 e0       	ldi	r18, 0x01	; 1
+ 372:	30 e0       	ldi	r19, 0x00	; 0
+ 374:	d9 01       	movw	r26, r18
+ 376:	02 c0       	rjmp	.+4      	; 0x37c <PORT_enumSetPinConfig+0x74>
+ 378:	aa 0f       	add	r26, r26
+ 37a:	bb 1f       	adc	r27, r27
+ 37c:	4a 95       	dec	r20
+ 37e:	e2 f7       	brpl	.-8      	; 0x378 <PORT_enumSetPinConfig+0x70>
+ 380:	ad 01       	movw	r20, r26
+ 382:	46 2b       	or	r20, r22
+ 384:	40 83       	st	Z, r20
+				CLEAR_BIT(*PORTX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);
+ 386:	fc 01       	movw	r30, r24
+ 388:	80 81       	ld	r24, Z
+ 38a:	e8 2f       	mov	r30, r24
+ 38c:	e7 70       	andi	r30, 0x07	; 7
+ 38e:	f0 e0       	ldi	r31, 0x00	; 0
+ 390:	ee 0f       	add	r30, r30
+ 392:	ff 1f       	adc	r31, r31
+ 394:	ec 59       	subi	r30, 0x9C	; 156
+ 396:	ff 4f       	sbci	r31, 0xFF	; 255
+ 398:	01 90       	ld	r0, Z+
+ 39a:	f0 81       	ld	r31, Z
+ 39c:	e0 2d       	mov	r30, r0
+ 39e:	90 81       	ld	r25, Z
+ 3a0:	86 95       	lsr	r24
+ 3a2:	86 95       	lsr	r24
+ 3a4:	86 95       	lsr	r24
+ 3a6:	87 70       	andi	r24, 0x07	; 7
+ 3a8:	02 c0       	rjmp	.+4      	; 0x3ae <PORT_enumSetPinConfig+0xa6>
+ 3aa:	22 0f       	add	r18, r18
+ 3ac:	33 1f       	adc	r19, r19
+ 3ae:	8a 95       	dec	r24
+ 3b0:	e2 f7       	brpl	.-8      	; 0x3aa <PORT_enumSetPinConfig+0xa2>
+ 3b2:	20 95       	com	r18
+ 3b4:	29 23       	and	r18, r25
+ 3b6:	20 83       	st	Z, r18
+ *@param  : Port Number,Pin Number,Configuration type(Input/Output).
+ *@return : Error State                                               
+ */	
+DIO_enumError_t PORT_enumSetPinConfig(const DIO_strPinConfig_t *Add_strPinConfig)
+{
+	DIO_enumError_t PORT_LocEnumRetErr=DIO_enumOk;		/*Initialize the Return Error State by Default Ok*/	
+ 3b8:	80 e0       	ldi	r24, 0x00	; 0
+		{
+			case DIO_enumOutputLow: 
+			{
+				SET_BIT(*DDRX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);
+				CLEAR_BIT(*PORTX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);
+				break;
+ 3ba:	08 95       	ret
+			}
+			case DIO_enumOutputHigh: 
+			{
+				SET_BIT(*DDRX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);
+ 3bc:	22 0f       	add	r18, r18
+ 3be:	33 1f       	adc	r19, r19
+ 3c0:	f9 01       	movw	r30, r18
+ 3c2:	e4 59       	subi	r30, 0x94	; 148
+ 3c4:	ff 4f       	sbci	r31, 0xFF	; 255
+ 3c6:	01 90       	ld	r0, Z+
+ 3c8:	f0 81       	ld	r31, Z
+ 3ca:	e0 2d       	mov	r30, r0
+ 3cc:	60 81       	ld	r22, Z
+ 3ce:	21 e0       	ldi	r18, 0x01	; 1
+ 3d0:	30 e0       	ldi	r19, 0x00	; 0
+ 3d2:	d9 01       	movw	r26, r18
+ 3d4:	02 c0       	rjmp	.+4      	; 0x3da <PORT_enumSetPinConfig+0xd2>
+ 3d6:	aa 0f       	add	r26, r26
+ 3d8:	bb 1f       	adc	r27, r27
+ 3da:	4a 95       	dec	r20
+ 3dc:	e2 f7       	brpl	.-8      	; 0x3d6 <PORT_enumSetPinConfig+0xce>
+ 3de:	ad 01       	movw	r20, r26
+ 3e0:	46 2b       	or	r20, r22
+ 3e2:	40 83       	st	Z, r20
+				SET_BIT(*PORTX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);
+ 3e4:	fc 01       	movw	r30, r24
+ 3e6:	80 81       	ld	r24, Z
+ 3e8:	e8 2f       	mov	r30, r24
+ 3ea:	e7 70       	andi	r30, 0x07	; 7
+ 3ec:	f0 e0       	ldi	r31, 0x00	; 0
+ 3ee:	ee 0f       	add	r30, r30
+ 3f0:	ff 1f       	adc	r31, r31
+ 3f2:	ec 59       	subi	r30, 0x9C	; 156
+ 3f4:	ff 4f       	sbci	r31, 0xFF	; 255
+ 3f6:	01 90       	ld	r0, Z+
+ 3f8:	f0 81       	ld	r31, Z
+ 3fa:	e0 2d       	mov	r30, r0
+ 3fc:	90 81       	ld	r25, Z
+ 3fe:	86 95       	lsr	r24
+ 400:	86 95       	lsr	r24
+ 402:	86 95       	lsr	r24
+ 404:	87 70       	andi	r24, 0x07	; 7
+ 406:	02 c0       	rjmp	.+4      	; 0x40c <__EEPROM_REGION_LENGTH__+0xc>
+ 408:	22 0f       	add	r18, r18
+ 40a:	33 1f       	adc	r19, r19
+ 40c:	8a 95       	dec	r24
+ 40e:	e2 f7       	brpl	.-8      	; 0x408 <__EEPROM_REGION_LENGTH__+0x8>
+ 410:	29 2b       	or	r18, r25
+ 412:	20 83       	st	Z, r18
+ *@param  : Port Number,Pin Number,Configuration type(Input/Output).
+ *@return : Error State                                               
+ */	
+DIO_enumError_t PORT_enumSetPinConfig(const DIO_strPinConfig_t *Add_strPinConfig)
+{
+	DIO_enumError_t PORT_LocEnumRetErr=DIO_enumOk;		/*Initialize the Return Error State by Default Ok*/	
+ 414:	80 e0       	ldi	r24, 0x00	; 0
+			}
+			case DIO_enumOutputHigh: 
+			{
+				SET_BIT(*DDRX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);
+				SET_BIT(*PORTX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);
+				break;
+ 416:	08 95       	ret
+			}
+			case DIO_enumInputInternalPU:
+			{
+				CLEAR_BIT(*DDRX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);
+ 418:	22 0f       	add	r18, r18
+ 41a:	33 1f       	adc	r19, r19
+ 41c:	f9 01       	movw	r30, r18
+ 41e:	e4 59       	subi	r30, 0x94	; 148
+ 420:	ff 4f       	sbci	r31, 0xFF	; 255
+ 422:	01 90       	ld	r0, Z+
+ 424:	f0 81       	ld	r31, Z
+ 426:	e0 2d       	mov	r30, r0
+ 428:	50 81       	ld	r21, Z
+ 42a:	21 e0       	ldi	r18, 0x01	; 1
+ 42c:	30 e0       	ldi	r19, 0x00	; 0
+ 42e:	b9 01       	movw	r22, r18
+ 430:	02 c0       	rjmp	.+4      	; 0x436 <__EEPROM_REGION_LENGTH__+0x36>
+ 432:	66 0f       	add	r22, r22
+ 434:	77 1f       	adc	r23, r23
+ 436:	4a 95       	dec	r20
+ 438:	e2 f7       	brpl	.-8      	; 0x432 <__EEPROM_REGION_LENGTH__+0x32>
+ 43a:	46 2f       	mov	r20, r22
+ 43c:	40 95       	com	r20
+ 43e:	45 23       	and	r20, r21
+ 440:	40 83       	st	Z, r20
+				SET_BIT(*PORTX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);
+ 442:	dc 01       	movw	r26, r24
+ 444:	8c 91       	ld	r24, X
+ 446:	e8 2f       	mov	r30, r24
+ 448:	e7 70       	andi	r30, 0x07	; 7
+ 44a:	f0 e0       	ldi	r31, 0x00	; 0
+ 44c:	ee 0f       	add	r30, r30
+ 44e:	ff 1f       	adc	r31, r31
+ 450:	ec 59       	subi	r30, 0x9C	; 156
+ 452:	ff 4f       	sbci	r31, 0xFF	; 255
+ 454:	01 90       	ld	r0, Z+
+ 456:	f0 81       	ld	r31, Z
+ 458:	e0 2d       	mov	r30, r0
+ 45a:	90 81       	ld	r25, Z
+ 45c:	86 95       	lsr	r24
+ 45e:	86 95       	lsr	r24
+ 460:	86 95       	lsr	r24
+ 462:	87 70       	andi	r24, 0x07	; 7
+ 464:	02 c0       	rjmp	.+4      	; 0x46a <__EEPROM_REGION_LENGTH__+0x6a>
+ 466:	22 0f       	add	r18, r18
+ 468:	33 1f       	adc	r19, r19
+ 46a:	8a 95       	dec	r24
+ 46c:	e2 f7       	brpl	.-8      	; 0x466 <__EEPROM_REGION_LENGTH__+0x66>
+ 46e:	29 2b       	or	r18, r25
+ 470:	20 83       	st	Z, r18
+ *@param  : Port Number,Pin Number,Configuration type(Input/Output).
+ *@return : Error State                                               
+ */	
+DIO_enumError_t PORT_enumSetPinConfig(const DIO_strPinConfig_t *Add_strPinConfig)
+{
+	DIO_enumError_t PORT_LocEnumRetErr=DIO_enumOk;		/*Initialize the Return Error State by Default Ok*/	
+ 472:	80 e0       	ldi	r24, 0x00	; 0
+			}
+			case DIO_enumInputInternalPU:
+			{
+				CLEAR_BIT(*DDRX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);
+				SET_BIT(*PORTX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);
+				break;
+ 474:	08 95       	ret
+			}
+			case DIO_enumInputExternalPD:
+			{	
+				CLEAR_BIT(*DDRX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);
+ 476:	22 0f       	add	r18, r18
+ 478:	33 1f       	adc	r19, r19
+ 47a:	f9 01       	movw	r30, r18
+ 47c:	e4 59       	subi	r30, 0x94	; 148
+ 47e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 480:	01 90       	ld	r0, Z+
+ 482:	f0 81       	ld	r31, Z
+ 484:	e0 2d       	mov	r30, r0
+ 486:	50 81       	ld	r21, Z
+ 488:	21 e0       	ldi	r18, 0x01	; 1
+ 48a:	30 e0       	ldi	r19, 0x00	; 0
+ 48c:	b9 01       	movw	r22, r18
+ 48e:	02 c0       	rjmp	.+4      	; 0x494 <__EEPROM_REGION_LENGTH__+0x94>
+ 490:	66 0f       	add	r22, r22
+ 492:	77 1f       	adc	r23, r23
+ 494:	4a 95       	dec	r20
+ 496:	e2 f7       	brpl	.-8      	; 0x490 <__EEPROM_REGION_LENGTH__+0x90>
+ 498:	46 2f       	mov	r20, r22
+ 49a:	40 95       	com	r20
+ 49c:	45 23       	and	r20, r21
+ 49e:	40 83       	st	Z, r20
+				CLEAR_BIT(*PORTX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);
+ 4a0:	fc 01       	movw	r30, r24
+ 4a2:	80 81       	ld	r24, Z
+ 4a4:	e8 2f       	mov	r30, r24
+ 4a6:	e7 70       	andi	r30, 0x07	; 7
+ 4a8:	f0 e0       	ldi	r31, 0x00	; 0
+ 4aa:	ee 0f       	add	r30, r30
+ 4ac:	ff 1f       	adc	r31, r31
+ 4ae:	ec 59       	subi	r30, 0x9C	; 156
+ 4b0:	ff 4f       	sbci	r31, 0xFF	; 255
+ 4b2:	01 90       	ld	r0, Z+
+ 4b4:	f0 81       	ld	r31, Z
+ 4b6:	e0 2d       	mov	r30, r0
+ 4b8:	90 81       	ld	r25, Z
+ 4ba:	86 95       	lsr	r24
+ 4bc:	86 95       	lsr	r24
+ 4be:	86 95       	lsr	r24
+ 4c0:	87 70       	andi	r24, 0x07	; 7
+ 4c2:	02 c0       	rjmp	.+4      	; 0x4c8 <__EEPROM_REGION_LENGTH__+0xc8>
+ 4c4:	22 0f       	add	r18, r18
+ 4c6:	33 1f       	adc	r19, r19
+ 4c8:	8a 95       	dec	r24
+ 4ca:	e2 f7       	brpl	.-8      	; 0x4c4 <__EEPROM_REGION_LENGTH__+0xc4>
+ 4cc:	20 95       	com	r18
+ 4ce:	29 23       	and	r18, r25
+ 4d0:	20 83       	st	Z, r18
+ *@param  : Port Number,Pin Number,Configuration type(Input/Output).
+ *@return : Error State                                               
+ */	
+DIO_enumError_t PORT_enumSetPinConfig(const DIO_strPinConfig_t *Add_strPinConfig)
+{
+	DIO_enumError_t PORT_LocEnumRetErr=DIO_enumOk;		/*Initialize the Return Error State by Default Ok*/	
+ 4d2:	80 e0       	ldi	r24, 0x00	; 0
+			}
+			case DIO_enumInputExternalPD:
+			{	
+				CLEAR_BIT(*DDRX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);
+				CLEAR_BIT(*PORTX_Registers[Add_strPinConfig->portNumber],Add_strPinConfig->pinNumber);
+				break;
+ 4d4:	08 95       	ret
+	/**
+	 *brief: (Validation Statement) Make sure that, the user Not Pass a Null Pointer.
+	 */
+	if(NULL==Add_strPinConfig)
+	{
+		PORT_LocEnumRetErr=DIO_enumNullPointer;
+ 4d6:	81 e0       	ldi	r24, 0x01	; 1
+ 4d8:	08 95       	ret
+	/**
+	 *brief: (Validation Statement) Make sure that, the user does Not Pass a Port Not exist in MCU.
+	 */
+	else if(((Add_strPinConfig->portNumber)>MAX_PORT_NUM)||((Add_strPinConfig->portNumber)<MIN_PORT_NUM))
+	{
+		PORT_LocEnumRetErr=DIO_enumWrongPort;
+ 4da:	82 e0       	ldi	r24, 0x02	; 2
+ 4dc:	08 95       	ret
+	/**
+	 *brief: (Validation Statement) Make sure that, the user does Not Pass a Direction Config Not exist.
+	 */
+	else if(((Add_strPinConfig->pinDirection)>MAX_DIR_OPTION)||((Add_strPinConfig->pinDirection)<MIN_DIR_OPTION))
+	{
+		PORT_LocEnumRetErr=DIO_enumWrongConfig;
+ 4de:	84 e0       	ldi	r24, 0x04	; 4
+ 4e0:	08 95       	ret
+ *@param  : Port Number,Pin Number,Configuration type(Input/Output).
+ *@return : Error State                                               
+ */	
+DIO_enumError_t PORT_enumSetPinConfig(const DIO_strPinConfig_t *Add_strPinConfig)
+{
+	DIO_enumError_t PORT_LocEnumRetErr=DIO_enumOk;		/*Initialize the Return Error State by Default Ok*/	
+ 4e2:	80 e0       	ldi	r24, 0x00	; 0
+			}
+		}
+	}
+	
+	return PORT_LocEnumRetErr;
+}
+ 4e4:	08 95       	ret
+
+000004e6 <__vector_1>:
+ *           assigned for INT0 and executes it if available. Users can set their own callback functions for INT0
+ *           using the EXTI_voidSetCallBack function in the Application Layer.
+ */
+void __vector_1(void) __attribute__((signal));
+void __vector_1(void)
+{
+ 4e6:	1f 92       	push	r1
+ 4e8:	0f 92       	push	r0
+ 4ea:	0f b6       	in	r0, 0x3f	; 63
+ 4ec:	0f 92       	push	r0
+ 4ee:	11 24       	eor	r1, r1
+ 4f0:	2f 93       	push	r18
+ 4f2:	3f 93       	push	r19
+ 4f4:	4f 93       	push	r20
+ 4f6:	5f 93       	push	r21
+ 4f8:	6f 93       	push	r22
+ 4fa:	7f 93       	push	r23
+ 4fc:	8f 93       	push	r24
+ 4fe:	9f 93       	push	r25
+ 500:	af 93       	push	r26
+ 502:	bf 93       	push	r27
+ 504:	ef 93       	push	r30
+ 506:	ff 93       	push	r31
+	/* Validation Statement - Check if Pointer to function EXTI0_ISR equal NULL or Not*/
+	if(EXTI0_ISR)
+ 508:	e0 91 8e 00 	lds	r30, 0x008E	; 0x80008e <EXTI0_ISR>
+ 50c:	f0 91 8f 00 	lds	r31, 0x008F	; 0x80008f <EXTI0_ISR+0x1>
+ 510:	30 97       	sbiw	r30, 0x00	; 0
+ 512:	09 f0       	breq	.+2      	; 0x516 <__vector_1+0x30>
+	{
+		EXTI0_ISR();
+ 514:	09 95       	icall
+	}
+	else
+	{
+		/* Nothing to do but for MISRA*/
+	}
+}
+ 516:	ff 91       	pop	r31
+ 518:	ef 91       	pop	r30
+ 51a:	bf 91       	pop	r27
+ 51c:	af 91       	pop	r26
+ 51e:	9f 91       	pop	r25
+ 520:	8f 91       	pop	r24
+ 522:	7f 91       	pop	r23
+ 524:	6f 91       	pop	r22
+ 526:	5f 91       	pop	r21
+ 528:	4f 91       	pop	r20
+ 52a:	3f 91       	pop	r19
+ 52c:	2f 91       	pop	r18
+ 52e:	0f 90       	pop	r0
+ 530:	0f be       	out	0x3f, r0	; 63
+ 532:	0f 90       	pop	r0
+ 534:	1f 90       	pop	r1
+ 536:	18 95       	reti
+
+00000538 <__vector_2>:
+ *           using the EXTI_voidSetCallBack function in the Application Layer.
+ */
+
+void __vector_2(void) __attribute__((signal));
+void __vector_2(void)
+{
+ 538:	1f 92       	push	r1
+ 53a:	0f 92       	push	r0
+ 53c:	0f b6       	in	r0, 0x3f	; 63
+ 53e:	0f 92       	push	r0
+ 540:	11 24       	eor	r1, r1
+ 542:	2f 93       	push	r18
+ 544:	3f 93       	push	r19
+ 546:	4f 93       	push	r20
+ 548:	5f 93       	push	r21
+ 54a:	6f 93       	push	r22
+ 54c:	7f 93       	push	r23
+ 54e:	8f 93       	push	r24
+ 550:	9f 93       	push	r25
+ 552:	af 93       	push	r26
+ 554:	bf 93       	push	r27
+ 556:	ef 93       	push	r30
+ 558:	ff 93       	push	r31
+	/* Validation Statement - Check if Pointer to function EXTI1_ISR equal NULL or Not */
+	if(EXTI1_ISR)
+ 55a:	e0 91 8c 00 	lds	r30, 0x008C	; 0x80008c <EXTI1_ISR>
+ 55e:	f0 91 8d 00 	lds	r31, 0x008D	; 0x80008d <EXTI1_ISR+0x1>
+ 562:	30 97       	sbiw	r30, 0x00	; 0
+ 564:	09 f0       	breq	.+2      	; 0x568 <__vector_2+0x30>
+	{
+		EXTI1_ISR();
+ 566:	09 95       	icall
+	}
+	else
+	{
+		/* Nothing to do but for MISRA*/
+	}
+}
+ 568:	ff 91       	pop	r31
+ 56a:	ef 91       	pop	r30
+ 56c:	bf 91       	pop	r27
+ 56e:	af 91       	pop	r26
+ 570:	9f 91       	pop	r25
+ 572:	8f 91       	pop	r24
+ 574:	7f 91       	pop	r23
+ 576:	6f 91       	pop	r22
+ 578:	5f 91       	pop	r21
+ 57a:	4f 91       	pop	r20
+ 57c:	3f 91       	pop	r19
+ 57e:	2f 91       	pop	r18
+ 580:	0f 90       	pop	r0
+ 582:	0f be       	out	0x3f, r0	; 63
+ 584:	0f 90       	pop	r0
+ 586:	1f 90       	pop	r1
+ 588:	18 95       	reti
+
+0000058a <__vector_3>:
+ *           assigned for INT2 and executes it if available. Users can set their own callback functions for INT2
+ *           using the EXTI_voidSetCallBack function in the Application Layer.
+ */
+void __vector_3(void) __attribute__((signal));
+void __vector_3(void)
+{
+ 58a:	1f 92       	push	r1
+ 58c:	0f 92       	push	r0
+ 58e:	0f b6       	in	r0, 0x3f	; 63
+ 590:	0f 92       	push	r0
+ 592:	11 24       	eor	r1, r1
+ 594:	2f 93       	push	r18
+ 596:	3f 93       	push	r19
+ 598:	4f 93       	push	r20
+ 59a:	5f 93       	push	r21
+ 59c:	6f 93       	push	r22
+ 59e:	7f 93       	push	r23
+ 5a0:	8f 93       	push	r24
+ 5a2:	9f 93       	push	r25
+ 5a4:	af 93       	push	r26
+ 5a6:	bf 93       	push	r27
+ 5a8:	ef 93       	push	r30
+ 5aa:	ff 93       	push	r31
+	/* Validation Statement - Check if Pointer to function EXTI1_ISR equal NULL or Not */
+	if(EXTI2_ISR)
+ 5ac:	e0 91 8a 00 	lds	r30, 0x008A	; 0x80008a <EXTI2_ISR>
+ 5b0:	f0 91 8b 00 	lds	r31, 0x008B	; 0x80008b <EXTI2_ISR+0x1>
+ 5b4:	30 97       	sbiw	r30, 0x00	; 0
+ 5b6:	09 f0       	breq	.+2      	; 0x5ba <__vector_3+0x30>
+	{
+		EXTI2_ISR();
+ 5b8:	09 95       	icall
+	}
+	else
+	{
+		/* Nothing to do but for MISRA*/
+	}
+ 5ba:	ff 91       	pop	r31
+ 5bc:	ef 91       	pop	r30
+ 5be:	bf 91       	pop	r27
+ 5c0:	af 91       	pop	r26
+ 5c2:	9f 91       	pop	r25
+ 5c4:	8f 91       	pop	r24
+ 5c6:	7f 91       	pop	r23
+ 5c8:	6f 91       	pop	r22
+ 5ca:	5f 91       	pop	r21
+ 5cc:	4f 91       	pop	r20
+ 5ce:	3f 91       	pop	r19
+ 5d0:	2f 91       	pop	r18
+ 5d2:	0f 90       	pop	r0
+ 5d4:	0f be       	out	0x3f, r0	; 63
+ 5d6:	0f 90       	pop	r0
+ 5d8:	1f 90       	pop	r1
+ 5da:	18 95       	reti
+
+000005dc <__vector_11>:
+}
+
+/* ISR of OverFlow*/
+void __vector_11(void) __attribute__((signal,used));
+void __vector_11(void)
+{
+ 5dc:	1f 92       	push	r1
+ 5de:	0f 92       	push	r0
+ 5e0:	0f b6       	in	r0, 0x3f	; 63
+ 5e2:	0f 92       	push	r0
+ 5e4:	11 24       	eor	r1, r1
+ 5e6:	2f 93       	push	r18
+ 5e8:	3f 93       	push	r19
+ 5ea:	4f 93       	push	r20
+ 5ec:	5f 93       	push	r21
+ 5ee:	6f 93       	push	r22
+ 5f0:	7f 93       	push	r23
+ 5f2:	8f 93       	push	r24
+ 5f4:	9f 93       	push	r25
+ 5f6:	af 93       	push	r26
+ 5f8:	bf 93       	push	r27
+ 5fa:	ef 93       	push	r30
+ 5fc:	ff 93       	push	r31
+	static u8 Counter=0;
+	Counter++;
+ 5fe:	80 91 91 00 	lds	r24, 0x0091	; 0x800091 <Counter.1638>
+ 602:	8f 5f       	subi	r24, 0xFF	; 255
+ 604:	80 93 91 00 	sts	0x0091, r24	; 0x800091 <Counter.1638>
+	if(TIMER0_OverFlowCB&&(Counter==Timer0_OverflowsNumber[TIMER0_TimeMS]))
+ 608:	20 91 94 00 	lds	r18, 0x0094	; 0x800094 <TIMER0_OverFlowCB>
+ 60c:	30 91 95 00 	lds	r19, 0x0095	; 0x800095 <TIMER0_OverFlowCB+0x1>
+ 610:	23 2b       	or	r18, r19
+ 612:	a9 f0       	breq	.+42     	; 0x63e <__vector_11+0x62>
+ 614:	20 91 96 00 	lds	r18, 0x0096	; 0x800096 <TIMER0_TimeMS>
+ 618:	30 e0       	ldi	r19, 0x00	; 0
+ 61a:	f9 01       	movw	r30, r18
+ 61c:	e2 58       	subi	r30, 0x82	; 130
+ 61e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 620:	90 81       	ld	r25, Z
+ 622:	89 13       	cpse	r24, r25
+ 624:	0c c0       	rjmp	.+24     	; 0x63e <__vector_11+0x62>
+	{
+			TCNT0=Timer0_OVPreloadValues[TIMER0_TimeMS];
+ 626:	f9 01       	movw	r30, r18
+ 628:	ed 57       	subi	r30, 0x7D	; 125
+ 62a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 62c:	80 81       	ld	r24, Z
+ 62e:	82 bf       	out	0x32, r24	; 50
+			Counter=0;
+ 630:	10 92 91 00 	sts	0x0091, r1	; 0x800091 <Counter.1638>
+     		TIMER0_OverFlowCB();
+ 634:	e0 91 94 00 	lds	r30, 0x0094	; 0x800094 <TIMER0_OverFlowCB>
+ 638:	f0 91 95 00 	lds	r31, 0x0095	; 0x800095 <TIMER0_OverFlowCB+0x1>
+ 63c:	09 95       	icall
+	}
+}
+ 63e:	ff 91       	pop	r31
+ 640:	ef 91       	pop	r30
+ 642:	bf 91       	pop	r27
+ 644:	af 91       	pop	r26
+ 646:	9f 91       	pop	r25
+ 648:	8f 91       	pop	r24
+ 64a:	7f 91       	pop	r23
+ 64c:	6f 91       	pop	r22
+ 64e:	5f 91       	pop	r21
+ 650:	4f 91       	pop	r20
+ 652:	3f 91       	pop	r19
+ 654:	2f 91       	pop	r18
+ 656:	0f 90       	pop	r0
+ 658:	0f be       	out	0x3f, r0	; 63
+ 65a:	0f 90       	pop	r0
+ 65c:	1f 90       	pop	r1
+ 65e:	18 95       	reti
+
+00000660 <__vector_10>:
+
+void __vector_10(void) __attribute__((signal,used));
+void __vector_10(void)
+{
+ 660:	1f 92       	push	r1
+ 662:	0f 92       	push	r0
+ 664:	0f b6       	in	r0, 0x3f	; 63
+ 666:	0f 92       	push	r0
+ 668:	11 24       	eor	r1, r1
+ 66a:	2f 93       	push	r18
+ 66c:	3f 93       	push	r19
+ 66e:	4f 93       	push	r20
+ 670:	5f 93       	push	r21
+ 672:	6f 93       	push	r22
+ 674:	7f 93       	push	r23
+ 676:	8f 93       	push	r24
+ 678:	9f 93       	push	r25
+ 67a:	af 93       	push	r26
+ 67c:	bf 93       	push	r27
+ 67e:	ef 93       	push	r30
+ 680:	ff 93       	push	r31
+	static u8 Counter=0;
+	Counter++;
+ 682:	80 91 90 00 	lds	r24, 0x0090	; 0x800090 <Counter.1644>
+ 686:	8f 5f       	subi	r24, 0xFF	; 255
+ 688:	80 93 90 00 	sts	0x0090, r24	; 0x800090 <Counter.1644>
+	if(TIMER0_CMPMatchCB&&(Counter==Timer0_CMPMatchNumber[TIMER0_TimeMS]))
+ 68c:	20 91 92 00 	lds	r18, 0x0092	; 0x800092 <TIMER0_CMPMatchCB>
+ 690:	30 91 93 00 	lds	r19, 0x0093	; 0x800093 <TIMER0_CMPMatchCB+0x1>
+ 694:	23 2b       	or	r18, r19
+ 696:	a9 f0       	breq	.+42     	; 0x6c2 <__vector_10+0x62>
+ 698:	20 91 96 00 	lds	r18, 0x0096	; 0x800096 <TIMER0_TimeMS>
+ 69c:	30 e0       	ldi	r19, 0x00	; 0
+ 69e:	f9 01       	movw	r30, r18
+ 6a0:	ec 58       	subi	r30, 0x8C	; 140
+ 6a2:	ff 4f       	sbci	r31, 0xFF	; 255
+ 6a4:	90 81       	ld	r25, Z
+ 6a6:	89 13       	cpse	r24, r25
+ 6a8:	0c c0       	rjmp	.+24     	; 0x6c2 <__vector_10+0x62>
+	{
+			OCR0=Timer0_CTCPreloadValues[TIMER0_TimeMS];
+ 6aa:	f9 01       	movw	r30, r18
+ 6ac:	e7 58       	subi	r30, 0x87	; 135
+ 6ae:	ff 4f       	sbci	r31, 0xFF	; 255
+ 6b0:	80 81       	ld	r24, Z
+ 6b2:	8c bf       	out	0x3c, r24	; 60
+			Counter=0;
+ 6b4:	10 92 90 00 	sts	0x0090, r1	; 0x800090 <Counter.1644>
+     		TIMER0_CMPMatchCB();
+ 6b8:	e0 91 92 00 	lds	r30, 0x0092	; 0x800092 <TIMER0_CMPMatchCB>
+ 6bc:	f0 91 93 00 	lds	r31, 0x0093	; 0x800093 <TIMER0_CMPMatchCB+0x1>
+ 6c0:	09 95       	icall
+	}
+}
+ 6c2:	ff 91       	pop	r31
+ 6c4:	ef 91       	pop	r30
+ 6c6:	bf 91       	pop	r27
+ 6c8:	af 91       	pop	r26
+ 6ca:	9f 91       	pop	r25
+ 6cc:	8f 91       	pop	r24
+ 6ce:	7f 91       	pop	r23
+ 6d0:	6f 91       	pop	r22
+ 6d2:	5f 91       	pop	r21
+ 6d4:	4f 91       	pop	r20
+ 6d6:	3f 91       	pop	r19
+ 6d8:	2f 91       	pop	r18
+ 6da:	0f 90       	pop	r0
+ 6dc:	0f be       	out	0x3f, r0	; 63
+ 6de:	0f 90       	pop	r0
+ 6e0:	1f 90       	pop	r1
+ 6e2:	18 95       	reti
+
+000006e4 <__floatunsisf>:
+ 6e4:	e8 94       	clt
+ 6e6:	09 c0       	rjmp	.+18     	; 0x6fa <__floatsisf+0x12>
+
+000006e8 <__floatsisf>:
+ 6e8:	97 fb       	bst	r25, 7
+ 6ea:	3e f4       	brtc	.+14     	; 0x6fa <__floatsisf+0x12>
+ 6ec:	90 95       	com	r25
+ 6ee:	80 95       	com	r24
+ 6f0:	70 95       	com	r23
+ 6f2:	61 95       	neg	r22
+ 6f4:	7f 4f       	sbci	r23, 0xFF	; 255
+ 6f6:	8f 4f       	sbci	r24, 0xFF	; 255
+ 6f8:	9f 4f       	sbci	r25, 0xFF	; 255
+ 6fa:	99 23       	and	r25, r25
+ 6fc:	a9 f0       	breq	.+42     	; 0x728 <__floatsisf+0x40>
+ 6fe:	f9 2f       	mov	r31, r25
+ 700:	96 e9       	ldi	r25, 0x96	; 150
+ 702:	bb 27       	eor	r27, r27
+ 704:	93 95       	inc	r25
+ 706:	f6 95       	lsr	r31
+ 708:	87 95       	ror	r24
+ 70a:	77 95       	ror	r23
+ 70c:	67 95       	ror	r22
+ 70e:	b7 95       	ror	r27
+ 710:	f1 11       	cpse	r31, r1
+ 712:	f8 cf       	rjmp	.-16     	; 0x704 <__floatsisf+0x1c>
+ 714:	fa f4       	brpl	.+62     	; 0x754 <__floatsisf+0x6c>
+ 716:	bb 0f       	add	r27, r27
+ 718:	11 f4       	brne	.+4      	; 0x71e <__floatsisf+0x36>
+ 71a:	60 ff       	sbrs	r22, 0
+ 71c:	1b c0       	rjmp	.+54     	; 0x754 <__floatsisf+0x6c>
+ 71e:	6f 5f       	subi	r22, 0xFF	; 255
+ 720:	7f 4f       	sbci	r23, 0xFF	; 255
+ 722:	8f 4f       	sbci	r24, 0xFF	; 255
+ 724:	9f 4f       	sbci	r25, 0xFF	; 255
+ 726:	16 c0       	rjmp	.+44     	; 0x754 <__floatsisf+0x6c>
+ 728:	88 23       	and	r24, r24
+ 72a:	11 f0       	breq	.+4      	; 0x730 <__floatsisf+0x48>
+ 72c:	96 e9       	ldi	r25, 0x96	; 150
+ 72e:	11 c0       	rjmp	.+34     	; 0x752 <__floatsisf+0x6a>
+ 730:	77 23       	and	r23, r23
+ 732:	21 f0       	breq	.+8      	; 0x73c <__floatsisf+0x54>
+ 734:	9e e8       	ldi	r25, 0x8E	; 142
+ 736:	87 2f       	mov	r24, r23
+ 738:	76 2f       	mov	r23, r22
+ 73a:	05 c0       	rjmp	.+10     	; 0x746 <__floatsisf+0x5e>
+ 73c:	66 23       	and	r22, r22
+ 73e:	71 f0       	breq	.+28     	; 0x75c <__floatsisf+0x74>
+ 740:	96 e8       	ldi	r25, 0x86	; 134
+ 742:	86 2f       	mov	r24, r22
+ 744:	70 e0       	ldi	r23, 0x00	; 0
+ 746:	60 e0       	ldi	r22, 0x00	; 0
+ 748:	2a f0       	brmi	.+10     	; 0x754 <__floatsisf+0x6c>
+ 74a:	9a 95       	dec	r25
+ 74c:	66 0f       	add	r22, r22
+ 74e:	77 1f       	adc	r23, r23
+ 750:	88 1f       	adc	r24, r24
+ 752:	da f7       	brpl	.-10     	; 0x74a <__floatsisf+0x62>
+ 754:	88 0f       	add	r24, r24
+ 756:	96 95       	lsr	r25
+ 758:	87 95       	ror	r24
+ 75a:	97 f9       	bld	r25, 7
+ 75c:	08 95       	ret
+
+0000075e <__gesf2>:
+ 75e:	0e 94 21 04 	call	0x842	; 0x842 <__fp_cmp>
+ 762:	08 f4       	brcc	.+2      	; 0x766 <__gesf2+0x8>
+ 764:	8f ef       	ldi	r24, 0xFF	; 255
+ 766:	08 95       	ret
+
+00000768 <__mulsf3>:
+ 768:	0e 94 c7 03 	call	0x78e	; 0x78e <__mulsf3x>
+ 76c:	0c 94 5c 04 	jmp	0x8b8	; 0x8b8 <__fp_round>
+ 770:	0e 94 4e 04 	call	0x89c	; 0x89c <__fp_pscA>
+ 774:	38 f0       	brcs	.+14     	; 0x784 <__mulsf3+0x1c>
+ 776:	0e 94 55 04 	call	0x8aa	; 0x8aa <__fp_pscB>
+ 77a:	20 f0       	brcs	.+8      	; 0x784 <__mulsf3+0x1c>
+ 77c:	95 23       	and	r25, r21
+ 77e:	11 f0       	breq	.+4      	; 0x784 <__mulsf3+0x1c>
+ 780:	0c 94 45 04 	jmp	0x88a	; 0x88a <__fp_inf>
+ 784:	0c 94 4b 04 	jmp	0x896	; 0x896 <__fp_nan>
+ 788:	11 24       	eor	r1, r1
+ 78a:	0c 94 90 04 	jmp	0x920	; 0x920 <__fp_szero>
+
+0000078e <__mulsf3x>:
+ 78e:	0e 94 6d 04 	call	0x8da	; 0x8da <__fp_split3>
+ 792:	70 f3       	brcs	.-36     	; 0x770 <__mulsf3+0x8>
+
+00000794 <__mulsf3_pse>:
+ 794:	95 9f       	mul	r25, r21
+ 796:	c1 f3       	breq	.-16     	; 0x788 <__mulsf3+0x20>
+ 798:	95 0f       	add	r25, r21
+ 79a:	50 e0       	ldi	r21, 0x00	; 0
+ 79c:	55 1f       	adc	r21, r21
+ 79e:	62 9f       	mul	r22, r18
+ 7a0:	f0 01       	movw	r30, r0
+ 7a2:	72 9f       	mul	r23, r18
+ 7a4:	bb 27       	eor	r27, r27
+ 7a6:	f0 0d       	add	r31, r0
+ 7a8:	b1 1d       	adc	r27, r1
+ 7aa:	63 9f       	mul	r22, r19
+ 7ac:	aa 27       	eor	r26, r26
+ 7ae:	f0 0d       	add	r31, r0
+ 7b0:	b1 1d       	adc	r27, r1
+ 7b2:	aa 1f       	adc	r26, r26
+ 7b4:	64 9f       	mul	r22, r20
+ 7b6:	66 27       	eor	r22, r22
+ 7b8:	b0 0d       	add	r27, r0
+ 7ba:	a1 1d       	adc	r26, r1
+ 7bc:	66 1f       	adc	r22, r22
+ 7be:	82 9f       	mul	r24, r18
+ 7c0:	22 27       	eor	r18, r18
+ 7c2:	b0 0d       	add	r27, r0
+ 7c4:	a1 1d       	adc	r26, r1
+ 7c6:	62 1f       	adc	r22, r18
+ 7c8:	73 9f       	mul	r23, r19
+ 7ca:	b0 0d       	add	r27, r0
+ 7cc:	a1 1d       	adc	r26, r1
+ 7ce:	62 1f       	adc	r22, r18
+ 7d0:	83 9f       	mul	r24, r19
+ 7d2:	a0 0d       	add	r26, r0
+ 7d4:	61 1d       	adc	r22, r1
+ 7d6:	22 1f       	adc	r18, r18
+ 7d8:	74 9f       	mul	r23, r20
+ 7da:	33 27       	eor	r19, r19
+ 7dc:	a0 0d       	add	r26, r0
+ 7de:	61 1d       	adc	r22, r1
+ 7e0:	23 1f       	adc	r18, r19
+ 7e2:	84 9f       	mul	r24, r20
+ 7e4:	60 0d       	add	r22, r0
+ 7e6:	21 1d       	adc	r18, r1
+ 7e8:	82 2f       	mov	r24, r18
+ 7ea:	76 2f       	mov	r23, r22
+ 7ec:	6a 2f       	mov	r22, r26
+ 7ee:	11 24       	eor	r1, r1
+ 7f0:	9f 57       	subi	r25, 0x7F	; 127
+ 7f2:	50 40       	sbci	r21, 0x00	; 0
+ 7f4:	9a f0       	brmi	.+38     	; 0x81c <__DATA_REGION_LENGTH__+0x1c>
+ 7f6:	f1 f0       	breq	.+60     	; 0x834 <__DATA_REGION_LENGTH__+0x34>
+ 7f8:	88 23       	and	r24, r24
+ 7fa:	4a f0       	brmi	.+18     	; 0x80e <__DATA_REGION_LENGTH__+0xe>
+ 7fc:	ee 0f       	add	r30, r30
+ 7fe:	ff 1f       	adc	r31, r31
+ 800:	bb 1f       	adc	r27, r27
+ 802:	66 1f       	adc	r22, r22
+ 804:	77 1f       	adc	r23, r23
+ 806:	88 1f       	adc	r24, r24
+ 808:	91 50       	subi	r25, 0x01	; 1
+ 80a:	50 40       	sbci	r21, 0x00	; 0
+ 80c:	a9 f7       	brne	.-22     	; 0x7f8 <__mulsf3_pse+0x64>
+ 80e:	9e 3f       	cpi	r25, 0xFE	; 254
+ 810:	51 05       	cpc	r21, r1
+ 812:	80 f0       	brcs	.+32     	; 0x834 <__DATA_REGION_LENGTH__+0x34>
+ 814:	0c 94 45 04 	jmp	0x88a	; 0x88a <__fp_inf>
+ 818:	0c 94 90 04 	jmp	0x920	; 0x920 <__fp_szero>
+ 81c:	5f 3f       	cpi	r21, 0xFF	; 255
+ 81e:	e4 f3       	brlt	.-8      	; 0x818 <__DATA_REGION_LENGTH__+0x18>
+ 820:	98 3e       	cpi	r25, 0xE8	; 232
+ 822:	d4 f3       	brlt	.-12     	; 0x818 <__DATA_REGION_LENGTH__+0x18>
+ 824:	86 95       	lsr	r24
+ 826:	77 95       	ror	r23
+ 828:	67 95       	ror	r22
+ 82a:	b7 95       	ror	r27
+ 82c:	f7 95       	ror	r31
+ 82e:	e7 95       	ror	r30
+ 830:	9f 5f       	subi	r25, 0xFF	; 255
+ 832:	c1 f7       	brne	.-16     	; 0x824 <__DATA_REGION_LENGTH__+0x24>
+ 834:	fe 2b       	or	r31, r30
+ 836:	88 0f       	add	r24, r24
+ 838:	91 1d       	adc	r25, r1
+ 83a:	96 95       	lsr	r25
+ 83c:	87 95       	ror	r24
+ 83e:	97 f9       	bld	r25, 7
+ 840:	08 95       	ret
+
+00000842 <__fp_cmp>:
+ 842:	99 0f       	add	r25, r25
+ 844:	00 08       	sbc	r0, r0
+ 846:	55 0f       	add	r21, r21
+ 848:	aa 0b       	sbc	r26, r26
+ 84a:	e0 e8       	ldi	r30, 0x80	; 128
+ 84c:	fe ef       	ldi	r31, 0xFE	; 254
+ 84e:	16 16       	cp	r1, r22
+ 850:	17 06       	cpc	r1, r23
+ 852:	e8 07       	cpc	r30, r24
+ 854:	f9 07       	cpc	r31, r25
+ 856:	c0 f0       	brcs	.+48     	; 0x888 <__stack+0x29>
+ 858:	12 16       	cp	r1, r18
+ 85a:	13 06       	cpc	r1, r19
+ 85c:	e4 07       	cpc	r30, r20
+ 85e:	f5 07       	cpc	r31, r21
+ 860:	98 f0       	brcs	.+38     	; 0x888 <__stack+0x29>
+ 862:	62 1b       	sub	r22, r18
+ 864:	73 0b       	sbc	r23, r19
+ 866:	84 0b       	sbc	r24, r20
+ 868:	95 0b       	sbc	r25, r21
+ 86a:	39 f4       	brne	.+14     	; 0x87a <__stack+0x1b>
+ 86c:	0a 26       	eor	r0, r26
+ 86e:	61 f0       	breq	.+24     	; 0x888 <__stack+0x29>
+ 870:	23 2b       	or	r18, r19
+ 872:	24 2b       	or	r18, r20
+ 874:	25 2b       	or	r18, r21
+ 876:	21 f4       	brne	.+8      	; 0x880 <__stack+0x21>
+ 878:	08 95       	ret
+ 87a:	0a 26       	eor	r0, r26
+ 87c:	09 f4       	brne	.+2      	; 0x880 <__stack+0x21>
+ 87e:	a1 40       	sbci	r26, 0x01	; 1
+ 880:	a6 95       	lsr	r26
+ 882:	8f ef       	ldi	r24, 0xFF	; 255
+ 884:	81 1d       	adc	r24, r1
+ 886:	81 1d       	adc	r24, r1
+ 888:	08 95       	ret
+
+0000088a <__fp_inf>:
+ 88a:	97 f9       	bld	r25, 7
+ 88c:	9f 67       	ori	r25, 0x7F	; 127
+ 88e:	80 e8       	ldi	r24, 0x80	; 128
+ 890:	70 e0       	ldi	r23, 0x00	; 0
+ 892:	60 e0       	ldi	r22, 0x00	; 0
+ 894:	08 95       	ret
+
+00000896 <__fp_nan>:
+ 896:	9f ef       	ldi	r25, 0xFF	; 255
+ 898:	80 ec       	ldi	r24, 0xC0	; 192
+ 89a:	08 95       	ret
+
+0000089c <__fp_pscA>:
+ 89c:	00 24       	eor	r0, r0
+ 89e:	0a 94       	dec	r0
+ 8a0:	16 16       	cp	r1, r22
+ 8a2:	17 06       	cpc	r1, r23
+ 8a4:	18 06       	cpc	r1, r24
+ 8a6:	09 06       	cpc	r0, r25
+ 8a8:	08 95       	ret
+
+000008aa <__fp_pscB>:
+ 8aa:	00 24       	eor	r0, r0
+ 8ac:	0a 94       	dec	r0
+ 8ae:	12 16       	cp	r1, r18
+ 8b0:	13 06       	cpc	r1, r19
+ 8b2:	14 06       	cpc	r1, r20
+ 8b4:	05 06       	cpc	r0, r21
+ 8b6:	08 95       	ret
+
+000008b8 <__fp_round>:
+ 8b8:	09 2e       	mov	r0, r25
+ 8ba:	03 94       	inc	r0
+ 8bc:	00 0c       	add	r0, r0
+ 8be:	11 f4       	brne	.+4      	; 0x8c4 <__fp_round+0xc>
+ 8c0:	88 23       	and	r24, r24
+ 8c2:	52 f0       	brmi	.+20     	; 0x8d8 <__fp_round+0x20>
+ 8c4:	bb 0f       	add	r27, r27
+ 8c6:	40 f4       	brcc	.+16     	; 0x8d8 <__fp_round+0x20>
+ 8c8:	bf 2b       	or	r27, r31
+ 8ca:	11 f4       	brne	.+4      	; 0x8d0 <__fp_round+0x18>
+ 8cc:	60 ff       	sbrs	r22, 0
+ 8ce:	04 c0       	rjmp	.+8      	; 0x8d8 <__fp_round+0x20>
+ 8d0:	6f 5f       	subi	r22, 0xFF	; 255
+ 8d2:	7f 4f       	sbci	r23, 0xFF	; 255
+ 8d4:	8f 4f       	sbci	r24, 0xFF	; 255
+ 8d6:	9f 4f       	sbci	r25, 0xFF	; 255
+ 8d8:	08 95       	ret
+
+000008da <__fp_split3>:
+ 8da:	57 fd       	sbrc	r21, 7
+ 8dc:	90 58       	subi	r25, 0x80	; 128
+ 8de:	44 0f       	add	r20, r20
+ 8e0:	55 1f       	adc	r21, r21
+ 8e2:	59 f0       	breq	.+22     	; 0x8fa <__fp_splitA+0x10>
+ 8e4:	5f 3f       	cpi	r21, 0xFF	; 255
+ 8e6:	71 f0       	breq	.+28     	; 0x904 <__fp_splitA+0x1a>
+ 8e8:	47 95       	ror	r20
+
+000008ea <__fp_splitA>:
+ 8ea:	88 0f       	add	r24, r24
+ 8ec:	97 fb       	bst	r25, 7
+ 8ee:	99 1f       	adc	r25, r25
+ 8f0:	61 f0       	breq	.+24     	; 0x90a <__fp_splitA+0x20>
+ 8f2:	9f 3f       	cpi	r25, 0xFF	; 255
+ 8f4:	79 f0       	breq	.+30     	; 0x914 <__fp_splitA+0x2a>
+ 8f6:	87 95       	ror	r24
+ 8f8:	08 95       	ret
+ 8fa:	12 16       	cp	r1, r18
+ 8fc:	13 06       	cpc	r1, r19
+ 8fe:	14 06       	cpc	r1, r20
+ 900:	55 1f       	adc	r21, r21
+ 902:	f2 cf       	rjmp	.-28     	; 0x8e8 <__fp_split3+0xe>
+ 904:	46 95       	lsr	r20
+ 906:	f1 df       	rcall	.-30     	; 0x8ea <__fp_splitA>
+ 908:	08 c0       	rjmp	.+16     	; 0x91a <__fp_splitA+0x30>
+ 90a:	16 16       	cp	r1, r22
+ 90c:	17 06       	cpc	r1, r23
+ 90e:	18 06       	cpc	r1, r24
+ 910:	99 1f       	adc	r25, r25
+ 912:	f1 cf       	rjmp	.-30     	; 0x8f6 <__fp_splitA+0xc>
+ 914:	86 95       	lsr	r24
+ 916:	71 05       	cpc	r23, r1
+ 918:	61 05       	cpc	r22, r1
+ 91a:	08 94       	sec
+ 91c:	08 95       	ret
+
+0000091e <__fp_zero>:
+ 91e:	e8 94       	clt
+
+00000920 <__fp_szero>:
+ 920:	bb 27       	eor	r27, r27
+ 922:	66 27       	eor	r22, r22
+ 924:	77 27       	eor	r23, r23
+ 926:	cb 01       	movw	r24, r22
+ 928:	97 f9       	bld	r25, 7
+ 92a:	08 95       	ret
+
+0000092c <_exit>:
+ 92c:	f8 94       	cli
+
+0000092e <__stop_program>:
+ 92e:	ff cf       	rjmp	.-2      	; 0x92e <__stop_program>

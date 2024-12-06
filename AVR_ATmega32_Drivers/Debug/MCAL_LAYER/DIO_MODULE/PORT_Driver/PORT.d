@@ -1,0 +1,18 @@
+MCAL_LAYER/DIO_MODULE/PORT_Driver/PORT.d \
+ MCAL_LAYER/DIO_MODULE/PORT_Driver/PORT.o: \
+ ../MCAL_LAYER/DIO_MODULE/PORT_Driver/PORT.c \
+ ../MCAL_LAYER/DIO_MODULE/PORT_Driver/PORT.h \
+ ../MCAL_LAYER/DIO_MODULE/PORT_Driver/../DIO_Driver/DIO.h \
+ ../MCAL_LAYER/DIO_MODULE/PORT_Driver/../DIO_Driver/../DIO_AddReg.h \
+ ../MCAL_LAYER/DIO_MODULE/PORT_Driver/../DIO_Driver/../../MCAL_StdTypes.h \
+ ../MCAL_LAYER/DIO_MODULE/PORT_Driver/PORT_Config.h
+
+../MCAL_LAYER/DIO_MODULE/PORT_Driver/PORT.h:
+
+../MCAL_LAYER/DIO_MODULE/PORT_Driver/../DIO_Driver/DIO.h:
+
+../MCAL_LAYER/DIO_MODULE/PORT_Driver/../DIO_Driver/../DIO_AddReg.h:
+
+../MCAL_LAYER/DIO_MODULE/PORT_Driver/../DIO_Driver/../../MCAL_StdTypes.h:
+
+../MCAL_LAYER/DIO_MODULE/PORT_Driver/PORT_Config.h:
